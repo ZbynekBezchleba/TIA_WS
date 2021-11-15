@@ -2,7 +2,7 @@
 <Document>
   <Engineering version="V16" />
   <DocumentInfo>
-    <Created>2021-11-12T13:52:02.1012746Z</Created>
+    <Created>2021-11-15T13:16:44.2817616Z</Created>
     <ExportSetting>WithDefaults</ExportSetting>
     <InstalledProducts>
       <Product>
@@ -55,7 +55,7 @@
   <Section Name="Output" />
   <Section Name="InOut" />
   <Section Name="Static">
-    <Member Name="SB1STDEdge_100mss" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member>
+    <Member Name="SB1STDEdge_100ms" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member>
     <Member Name="SB1STDEdge_200ms" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member>
     <Member Name="SB1STDEdge_400ms" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member>
     <Member Name="SB1STDEdge_500ms" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member>
