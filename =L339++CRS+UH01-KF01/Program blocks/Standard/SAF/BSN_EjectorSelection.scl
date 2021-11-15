@@ -1,0 +1,89 @@
+﻿FUNCTION "BSN_EjectorSelection" : Void
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_INPUT 
+      IB1_EjectPart : Bool;
+      IS_LastRow : Array[1..5] of "UDT_MatCard";   // Last row, from which are patrs ejected
+      IB1_Part1Ejectors : Byte;   // bit0- eject1, bit 1 eject2, bit 2 eject 3 ....
+      IB1_Part2Ejectors : Byte;   // bit0- eject1, bit 1 eject2, bit 2 eject 3 ....
+      IB1_Part3Ejectors : Byte;   // bit0- eject1, bit 1 eject2, bit 2 eject 3 ....
+      IB1_Part4Ejectors : Byte;   // bit0- eject1, bit 1 eject2, bit 2 eject 3 ....
+      IB1_Part5Ejectors : Byte;   // bit0- eject1, bit 1 eject2, bit 2 eject 3 ....
+   END_VAR
+
+   VAR_OUTPUT 
+      OI_PartPosNum : Int;
+      OB1_Ejector1 : Bool;
+      OB1_Ejector2 : Bool;
+      OB1_Ejector3 : Bool;
+      OB1_Ejector4 : Bool;
+      OB1_Ejector5 : Bool;
+   END_VAR
+
+
+BEGIN
+	// reset vystupu
+	#OB1_Ejector1 := False;
+	#OB1_Ejector2 := False;
+	#OB1_Ejector3 := False;
+	#OB1_Ejector4 := False;
+	#OB1_Ejector5 := False;
+	#OI_PartPosNum := 0;
+	
+	// vyhodnocení pro pozici 1
+	IF (#IS_LastRow[1].Occupied = TRUE) THEN
+	    IF #IB1_EjectPart = TRUE THEN
+	        #OB1_Ejector1 := #IB1_Part1Ejectors.%X0;
+	        #OB1_Ejector2 := #IB1_Part1Ejectors.%X1;
+	        #OB1_Ejector3 := #IB1_Part1Ejectors.%X2;
+	        #OB1_Ejector4 := #IB1_Part1Ejectors.%X3;
+	        #OB1_Ejector5 := #IB1_Part1Ejectors.%X4;
+	    END_IF;
+	    #OI_PartPosNum := 1;
+	END_IF;
+	// vyhodnocení pro pozici 2
+	IF (#IS_LastRow[1].Occupied = FALSE) AND (#IS_LastRow[2].Occupied = TRUE) THEN
+	    IF #IB1_EjectPart = TRUE THEN
+	        #OB1_Ejector1 := #IB1_Part2Ejectors.%X0;
+	        #OB1_Ejector2 := #IB1_Part2Ejectors.%X1;
+	        #OB1_Ejector3 := #IB1_Part2Ejectors.%X2;
+	        #OB1_Ejector4 := #IB1_Part2Ejectors.%X3;
+	        #OB1_Ejector5 := #IB1_Part2Ejectors.%X4;
+	    END_IF;
+	    #OI_PartPosNum := 2;
+	END_IF;
+	// vyhodnocení pro pozici 3
+	IF (#IS_LastRow[2].Occupied = FALSE) AND (#IS_LastRow[3].Occupied = TRUE) THEN
+	    IF #IB1_EjectPart = TRUE THEN
+	        #OB1_Ejector1 := #IB1_Part3Ejectors.%X0;
+	        #OB1_Ejector2 := #IB1_Part3Ejectors.%X1;
+	        #OB1_Ejector3 := #IB1_Part3Ejectors.%X2;
+	        #OB1_Ejector4 := #IB1_Part3Ejectors.%X3;
+	        #OB1_Ejector5 := #IB1_Part3Ejectors.%X4;
+	    END_IF;
+	    #OI_PartPosNum := 3;
+	END_IF;
+	// vyhodnocení pro pozici 4
+	IF (#IS_LastRow[3].Occupied = FALSE) AND (#IS_LastRow[4].Occupied = TRUE) THEN
+	    IF #IB1_EjectPart = TRUE THEN
+	        #OB1_Ejector1 := #IB1_Part4Ejectors.%X0;
+	        #OB1_Ejector2 := #IB1_Part4Ejectors.%X1;
+	        #OB1_Ejector3 := #IB1_Part4Ejectors.%X2;
+	        #OB1_Ejector4 := #IB1_Part4Ejectors.%X3;
+	        #OB1_Ejector5 := #IB1_Part4Ejectors.%X4;
+	    END_IF;
+	    #OI_PartPosNum := 4;
+	END_IF;
+	// vyhodnocení pro pozici 5
+	IF (#IS_LastRow[4].Occupied = FALSE) AND (#IS_LastRow[5].Occupied = TRUE) THEN
+	    IF #IB1_EjectPart = TRUE THEN
+	        #OB1_Ejector1 := #IB1_Part5Ejectors.%X0;
+	        #OB1_Ejector2 := #IB1_Part5Ejectors.%X1;
+	        #OB1_Ejector3 := #IB1_Part5Ejectors.%X2;
+	        #OB1_Ejector4 := #IB1_Part5Ejectors.%X3;
+	        #OB1_Ejector5 := #IB1_Part5Ejectors.%X4;
+	    END_IF;
+	    #OI_PartPosNum := 5;
+	END_IF;
+END_FUNCTION
+

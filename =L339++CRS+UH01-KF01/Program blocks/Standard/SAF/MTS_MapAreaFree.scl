@@ -1,0 +1,87 @@
+﻿FUNCTION "MTS_MapAreaFree" : Bool
+TITLE = Area in the map is free
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+//Evaluation whether the area of the map is free
+   VAR_INPUT 
+      II_RowNr : Int;   // Row number for first part to insert
+      II_LineNr : Int;   // Line number for first part to insert
+      I_Area : Array[*, *] of "UDT_MatCard";   // Area
+      I_Map : Array[*, *] of "UDT_MatCard";   // Map of parts
+   END_VAR
+
+   VAR_TEMP 
+      TI_RowNr : Int;   // Row number
+      TI_LineNr : Int;   // Line number
+      TI_Mode : Int;
+      TIAreaRowBoundLow : Int;   // Lower limit of row dimension of area
+      TIAreaRowBoundUp : Int;   // Upper limit of row dimension of area
+      TIAreaLineBoundLow : Int;   // Lower limit of line dimension of area
+      TIAreaLineBoundUp : Int;   // Upper limit of line dimension of area
+      TIMapRowBoundLow : Int;   // Lower limit of row dimension of map
+      TIMapRowBoundUp : Int;   // Upper limit of row dimension of map
+      TIMapLineBoundLow : Int;   // Lower limit of line dimension of map
+      TIMapLineBoundUp : Int;   // Upper limit of line dimension of map
+      TB1WrongIndex : Bool;   // Index is out of limits
+      TI_IndexRow : Int;   // Row array index
+      TI_IndexLine : Int;   // Line array index
+   END_VAR
+
+
+BEGIN
+	
+	REGION Copy input parameters to temporary variables
+	    #TI_RowNr := #II_RowNr;
+	    #TI_LineNr := #II_LineNr;
+	END_REGION
+	
+	REGION Input array dimensions
+	    #TIAreaRowBoundLow := DINT_TO_INT(LOWER_BOUND(ARR := #I_Area, DIM := 1)); // Lower limit of row dimension
+	    #TIAreaRowBoundUp := DINT_TO_INT(UPPER_BOUND(ARR := #I_Area, DIM := 1)); // Upper limit of row dimension
+	    #TIAreaLineBoundLow := DINT_TO_INT(LOWER_BOUND(ARR := #I_Area, DIM := 2)); // Lower limit of line dimension
+	    #TIAreaLineBoundUp := DINT_TO_INT(UPPER_BOUND(ARR := #I_Area, DIM := 2)); // Upper limit of row dimension
+	END_REGION
+	
+	REGION Map dimensions
+	    #TIMapRowBoundLow := DINT_TO_INT(LOWER_BOUND(ARR := #I_Map, DIM := 1)); // Lower limit of row dimension
+	    #TIMapRowBoundUp := DINT_TO_INT(UPPER_BOUND(ARR := #I_Map, DIM := 1)); // Upper limit of row dimension
+	    #TIMapLineBoundLow := DINT_TO_INT(LOWER_BOUND(ARR := #I_Map, DIM := 2)); // Lower limit of line dimension
+	    #TIMapLineBoundUp := DINT_TO_INT(UPPER_BOUND(ARR := #I_Map, DIM := 2)); // Upper limit of row dimension
+	END_REGION
+	
+	REGION Evaluation OF indexes
+	    // index of any position in the destination array cannot be out of dimension of the map
+	    IF #TI_RowNr < #TIMapRowBoundLow
+	        OR (#TI_RowNr + #TIAreaRowBoundUp - #TIAreaRowBoundLow) > #TIMapRowBoundUp
+	        OR #TI_LineNr < #TIMapLineBoundLow
+	        OR (#TI_LineNr + #TIAreaLineBoundUp - #TIAreaLineBoundLow) > #TIMapLineBoundUp
+	    THEN
+	        #TB1WrongIndex := TRUE;
+	    ELSE
+	        #TB1WrongIndex := FALSE;
+	    END_IF;
+	END_REGION
+	
+	REGION Evaluation the area of the map
+	    IF NOT #TB1WrongIndex THEN
+	        FOR #TI_IndexRow := #TIAreaRowBoundLow TO #TIAreaRowBoundUp DO
+	            FOR #TI_IndexLine := #TIAreaLineBoundLow TO #TIAreaLineBoundUp DO
+	                REGION Count map indexes
+	                    #TI_RowNr := #II_RowNr + #TI_IndexRow - #TIAreaRowBoundLow;
+	                    #TI_LineNr := #II_LineNr + #TI_IndexLine - #TIAreaLineBoundLow;
+	                END_REGION
+	                IF #I_Map[#TI_RowNr, #TI_LineNr].Occupied OR NOT #I_Map[#TI_RowNr, #TI_LineNr].Enabled THEN
+	                    #MTS_MapAreaFree := FALSE;
+	                    RETURN;
+	                END_IF;
+	            END_FOR;
+	        END_FOR;
+	        #MTS_MapAreaFree := TRUE;
+	    ELSE
+	        #MTS_MapAreaFree := FALSE;
+	    END_IF;
+	END_REGION
+	
+	
+END_FUNCTION
+

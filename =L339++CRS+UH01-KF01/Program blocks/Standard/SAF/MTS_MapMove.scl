@@ -1,0 +1,66 @@
+﻿FUNCTION "MTS_MapMove" : Void
+TITLE = Move map forward/backward
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+//Move all material data in the map to a position in next/previous row
+   VAR_INPUT 
+      IB1InvDir : Bool;   // Invert move direction (0:Fwd, 1:Back)
+   END_VAR
+
+   VAR_IN_OUT 
+      X_Map : Array[*, *] of "UDT_MatCard";   // Map of parts
+   END_VAR
+
+   VAR_TEMP 
+      TI_IndexRow : Int;   // Row array index
+      TI_IndexLine : Int;   // Line array index
+      TDIMapRowBoundLow : DInt;   // Lower limit of row dimension
+      TDIMapRowBoundUp : DInt;   // Upper limit of row dimension
+      TDIMapLineBoundLow : DInt;   // Lower limit of line dimension
+      TDIMapLineBoundUp : DInt;   // Upper limit of line dimension
+   END_VAR
+
+
+BEGIN
+	
+	REGION Map dimensions (array limits)
+	    #TDIMapRowBoundLow := LOWER_BOUND(ARR := #X_Map, DIM := 1);
+	    #TDIMapRowBoundUp := UPPER_BOUND(ARR := #X_Map, DIM := 1);
+	    #TDIMapLineBoundLow := LOWER_BOUND(ARR := #X_Map, DIM := 2);
+	    #TDIMapLineBoundUp := UPPER_BOUND(ARR := #X_Map, DIM := 2);
+	END_REGION
+	
+	REGION Move map
+	    IF NOT #IB1InvDir THEN
+	        REGION Move forward
+	            FOR #TI_IndexRow := #TDIMapRowBoundUp TO #TDIMapRowBoundLow + 1 BY -1 DO
+	                FOR #TI_IndexLine := #TDIMapLineBoundLow TO #TDIMapLineBoundUp DO
+	                    #X_Map[#TI_IndexRow, #TI_IndexLine] := #X_Map[#TI_IndexRow - 1, #TI_IndexLine];
+	                END_FOR;
+	            END_FOR;
+	        END_REGION
+	        
+	        REGION Clear first row
+	            FOR #TI_IndexLine := #TDIMapLineBoundLow TO #TDIMapLineBoundUp DO
+	                "MTS_Clear"(XS_MatCard := #X_Map[#TDIMapRowBoundLow, #TI_IndexLine]);
+	            END_FOR;
+	        END_REGION
+	    ELSE
+	        REGION Move backward
+	            FOR #TI_IndexRow := #TDIMapRowBoundLow TO #TDIMapRowBoundUp - 1 DO
+	                FOR #TI_IndexLine := #TDIMapLineBoundLow TO #TDIMapLineBoundUp DO
+	                    #X_Map[#TI_IndexRow, #TI_IndexLine] := #X_Map[#TI_IndexRow + 1, #TI_IndexLine];
+	                END_FOR;
+	            END_FOR;
+	        END_REGION
+	        
+	        REGION Clear last row
+	            FOR #TI_IndexLine := #TDIMapLineBoundLow TO #TDIMapLineBoundUp DO
+	                "MTS_Clear"(XS_MatCard := #X_Map[#TDIMapRowBoundUp, #TI_IndexLine]);
+	            END_FOR;
+	        END_REGION
+	    END_IF;
+	END_REGION
+	
+END_FUNCTION
+

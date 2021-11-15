@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V16" />
+  <DocumentInfo>
+    <Created>2021-11-12T13:32:40.3069085Z</Created>
+    <ExportSetting>WithDefaults</ExportSetting>
+    <InstalledProducts>
+      <Product>
+        <DisplayName>Totally Integrated Automation Portal</DisplayName>
+        <DisplayVersion>V16 Update 3</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>TIA Portal Version Control Interface</DisplayName>
+        <DisplayVersion>V16 Update 2</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>TIA Portal Openness</DisplayName>
+        <DisplayVersion>V16 Update 3</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>SINAMICS Startdrive Advanced</DisplayName>
+        <DisplayVersion>V16 Update 5</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>SINAMICS Startdrive G130, G150, S120, S150, SINAMICS MV, S210</DisplayName>
+        <DisplayVersion>V16 Update 5</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>SINAMICS Startdrive G110M, G120, G120C, G120D, G120P, G115D</DisplayName>
+        <DisplayVersion>V16 Update 5</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>STEP 7 Professional</DisplayName>
+        <DisplayVersion>V16 Update 3</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>STEP 7 Safety</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>WinCC UA Professional</DisplayName>
+        <DisplayVersion>V16 Update 3</DisplayVersion>
+      </Product>
+    </InstalledProducts>
+  </DocumentInfo>
+  <SW.Blocks.GlobalDB ID="0">
+    <AttributeList>
+      <AutoNumber>false</AutoNumber>
+      <DBAccessibleFromOPCUA>true</DBAccessibleFromOPCUA>
+      <HeaderAuthor />
+      <HeaderFamily />
+      <HeaderName />
+      <HeaderVersion>0.1</HeaderVersion>
+      <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v4">
+  <Section Name="Static">
+    <Member Name="xxxxx___BinarySensors___xxxxx" Datatype="Byte" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member>
+    <Member Name="CM01-BL01_4" Datatype="&quot;UDT_CH_DI_Command&quot;" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Proplachovací nádrž 2 Vysoká hladina Varování</MultiLanguageText><MultiLanguageText Lang="cs-CZ">Proplachovací nádrž 2 Vysoká hladina Varování</MultiLanguageText></Comment><Sections><Section Name="None"><Member Name="SimOn" Datatype="Bool" /><Member Name="SimOff" Datatype="Bool" /><Member Name="SimVal" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="CM01-BL01_5" Datatype="&quot;UDT_CH_DI_Command&quot;" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Proplachovací nádrž 2 Vysoká hladina Max</MultiLanguageText><MultiLanguageText Lang="cs-CZ">Proplachovací nádrž 2 Vysoká hladina Max</MultiLanguageText></Comment><Sections><Section Name="None"><Member Name="SimOn" Datatype="Bool" /><Member Name="SimOff" Datatype="Bool" /><Member Name="SimVal" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="xxxxx___BinaryOthers___xxxxx" Datatype="Byte" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member>
+    <Member Name="PwrOK" Datatype="&quot;UDT_CH_DI_Command&quot;" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Sections><Section Name="None"><Member Name="SimOn" Datatype="Bool" /><Member Name="SimOff" Datatype="Bool" /><Member Name="SimVal" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="000UH11-SF13" Datatype="&quot;UDT_CH_DI_Command&quot;" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Okamžitý stop Robot 2R2</MultiLanguageText><MultiLanguageText Lang="cs-CZ">Okamžitý stop Robot 2R2</MultiLanguageText></Comment><Sections><Section Name="None"><Member Name="SimOn" Datatype="Bool" /><Member Name="SimOff" Datatype="Bool" /><Member Name="SimVal" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="000UH11-SF10" Datatype="&quot;UDT_CH_DI_Command&quot;" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Robot 2R2 Proplach</MultiLanguageText><MultiLanguageText Lang="cs-CZ">Robot 2R2 Proplach</MultiLanguageText></Comment><Sections><Section Name="None"><Member Name="SimOn" Datatype="Bool" /><Member Name="SimOff" Datatype="Bool" /><Member Name="SimVal" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="000UH11-SF11" Datatype="&quot;UDT_CH_DI_Command&quot;" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Robot 2R2 Nástřik</MultiLanguageText><MultiLanguageText Lang="cs-CZ">Robot 2R2 Nástřik</MultiLanguageText></Comment><Sections><Section Name="None"><Member Name="SimOn" Datatype="Bool" /><Member Name="SimOff" Datatype="Bool" /><Member Name="SimVal" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="RO01_ReqToolchange" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Go to position for change tool request</MultiLanguageText></Comment></Member>
+    <Member Name="xxxxx___AnalogueSensors___xxxxx" Datatype="Byte" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member>
+    <Member Name="xxxxx___Drives___xxxxx" Datatype="Byte" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member>
+    <Member Name="RO01" Datatype="&quot;UDT_RobotABB_Command&quot;" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Robot</MultiLanguageText><MultiLanguageText Lang="cs-CZ">Robot</MultiLanguageText></Comment><Sections><Section Name="None"><Member Name="Init" Datatype="Bool" /><Member Name="GhostRunOn" Datatype="Bool" /><Member Name="GhostRunOff" Datatype="Bool" /><Member Name="DryRunOn" Datatype="Bool" /><Member Name="DryRunOff" Datatype="Bool" /><Member Name="ServPos" Datatype="Bool" /><Member Name="Res_0_6" Datatype="Bool" /><Member Name="Res_0_7" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="RC01" Datatype="&quot;UDT_DriveRobotABB_Command&quot;" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Controller</MultiLanguageText><MultiLanguageText Lang="cs-CZ">Controller</MultiLanguageText></Comment><Sections><Section Name="None"><Member Name="Init" Datatype="Bool" /><Member Name="Res_0_1" Datatype="Bool" /><Member Name="Res_0_2" Datatype="Bool" /><Member Name="Res_0_3" Datatype="Bool" /><Member Name="Res_0_4" Datatype="Bool" /><Member Name="Res_0_5" Datatype="Bool" /><Member Name="Res_0_6" Datatype="Bool" /><Member Name="Res_0_7" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="Lubricating" Datatype="&quot;UDT_DriveRobotABB_Command&quot;" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Lubricating</MultiLanguageText><MultiLanguageText Lang="cs-CZ">Lubricating</MultiLanguageText></Comment><Sections><Section Name="None"><Member Name="Init" Datatype="Bool" /><Member Name="Res_0_1" Datatype="Bool" /><Member Name="Res_0_2" Datatype="Bool" /><Member Name="Res_0_3" Datatype="Bool" /><Member Name="Res_0_4" Datatype="Bool" /><Member Name="Res_0_5" Datatype="Bool" /><Member Name="Res_0_6" Datatype="Bool" /><Member Name="Res_0_7" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="xxxxx___Others___xxxxx" Datatype="Byte" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member>
+    <Member Name="FlushToolCmd" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Command to flush tool</MultiLanguageText><MultiLanguageText Lang="cs-CZ">Command to flush tool</MultiLanguageText></Comment></Member>
+    <Member Name="FlushToolEnable" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Enable flush tool after end of production </MultiLanguageText><MultiLanguageText Lang="cs-CZ">Enable flush tool after end of production </MultiLanguageText></Comment></Member>
+    <Member Name="xxxxx___Alarms___xxxxx" Datatype="Byte" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member>
+    <Member Name="RO01_Timeout" Datatype="&quot;UDT_DI_Mon_Command&quot;" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Robot job active for too long</MultiLanguageText><MultiLanguageText Lang="cs-CZ">Robot job active for too long</MultiLanguageText></Comment><Sections><Section Name="None"><Member Name="Res_0_0" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="RO01_LubStartErr" Datatype="&quot;UDT_DI_Mon_Command&quot;" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Lubrication job did not start (robot did not move)</MultiLanguageText></Comment><Sections><Section Name="None"><Member Name="Res_0_0" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="CM01-BL01_4_alarm" Datatype="&quot;UDT_DI_Mon_Command&quot;" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Proplachovací nádrž 1 Vysoká hladina Varování</MultiLanguageText><MultiLanguageText Lang="cs-CZ">Proplachovací nádrž 1 Vysoká hladina Varování</MultiLanguageText></Comment><Sections><Section Name="None"><Member Name="Res_0_0" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="CM01-BL01_5_alarm" Datatype="&quot;UDT_DI_Mon_Command&quot;" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Proplachovací nádrž 1 Vysoká hladina Max</MultiLanguageText><MultiLanguageText Lang="cs-CZ">Proplachovací nádrž 1 Vysoká hladina Max</MultiLanguageText></Comment><Sections><Section Name="None"><Member Name="Res_0_0" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="xxxxx___SftyAlarms___xxxxx" Datatype="Byte" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member>
+    <Member Name="ES" Datatype="&quot;UDT_DI_Mon_Command&quot;" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">E-stop</MultiLanguageText><MultiLanguageText Lang="cs-CZ">E-stop</MultiLanguageText></Comment><Sections><Section Name="None"><Member Name="Res_0_0" Datatype="Bool" /></Section></Sections></Member>
+  </Section>
+</Sections></Interface>
+      <IsOnlyStoredInLoadMemory>false</IsOnlyStoredInLoadMemory>
+      <IsRetainMemResEnabled>false</IsRetainMemResEnabled>
+      <IsWriteProtectedInAS>false</IsWriteProtectedInAS>
+      <MemoryLayout>Optimized</MemoryLayout>
+      <MemoryReserve>100</MemoryReserve>
+      <Name>HMI_CMD_2R2</Name>
+      <Number>2113</Number>
+      <ProgrammingLanguage>DB</ProgrammingLanguage>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+          <MultilingualTextItem ID="3" CompositionName="Items">
+            <AttributeList>
+              <Culture>cs-CZ</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <MultilingualText ID="4" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="5" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+          <MultilingualTextItem ID="6" CompositionName="Items">
+            <AttributeList>
+              <Culture>cs-CZ</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+    </ObjectList>
+  </SW.Blocks.GlobalDB>
+</Document>

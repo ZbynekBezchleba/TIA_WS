@@ -1,0 +1,83 @@
+﻿FUNCTION "MTS_MapPutParts" : Void
+TITLE = Put parts to the map
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+//Move parts from source array to specified area in the map
+   VAR_INPUT 
+      II_RowNr : Int;   // Row number for first part to insert
+      II_LineNr : Int;   // Line number for first part to insert
+   END_VAR
+
+   VAR_IN_OUT 
+      X_Source : Array[*, *] of "UDT_MatCard";   // Source array of parts
+      X_Map : Array[*, *] of "UDT_MatCard";   // Map of parts
+   END_VAR
+
+   VAR_TEMP 
+      TI_RowNr : Int;   // Row number
+      TI_LineNr : Int;   // Line number
+      TISourceRowBoundLow : Int;   // Lower limit of row dimension of source array
+      TISourceRowBoundUp : Int;   // Upper limit of row dimension of source array
+      TISourceLineBoundLow : Int;   // Lower limit of line dimension of source array
+      TISourceLineBoundUp : Int;   // Upper limit of line dimension of source array
+      TIMapRowBoundLow : Int;   // Lower limit of row dimension of map
+      TIMapRowBoundUp : Int;   // Upper limit of row dimension of map
+      TIMapLineBoundLow : Int;   // Lower limit of line dimension of map
+      TIMapLineBoundUp : Int;   // Upper limit of line dimension of map
+      TB1WrongIndex : Bool;   // Index is out of limits
+      TI_IndexRow : Int;   // Row array index
+      TI_IndexLine : Int;   // Line array index
+   END_VAR
+
+
+BEGIN
+	
+	REGION Copy input parameters to temporary variables
+	    #TI_RowNr := #II_RowNr;
+	    #TI_LineNr := #II_LineNr;
+	END_REGION
+	
+	REGION Source array dimensions
+	    #TISourceRowBoundLow := DINT_TO_INT(LOWER_BOUND(ARR := #X_Source, DIM := 1));
+	    #TISourceRowBoundUp := DINT_TO_INT(UPPER_BOUND(ARR := #X_Source, DIM := 1));
+	    #TISourceLineBoundLow := DINT_TO_INT(LOWER_BOUND(ARR := #X_Source, DIM := 2));
+	    #TISourceLineBoundUp := DINT_TO_INT(UPPER_BOUND(ARR := #X_Source, DIM := 2));
+	END_REGION
+	
+	REGION Map dimensions
+	    #TIMapRowBoundLow := DINT_TO_INT(LOWER_BOUND(ARR := #X_Map, DIM := 1));
+	    #TIMapRowBoundUp := DINT_TO_INT(UPPER_BOUND(ARR := #X_Map, DIM := 1));
+	    #TIMapLineBoundLow := DINT_TO_INT(LOWER_BOUND(ARR := #X_Map, DIM := 2));
+	    #TIMapLineBoundUp := DINT_TO_INT(UPPER_BOUND(ARR := #X_Map, DIM := 2));
+	END_REGION
+	
+	REGION Evaluation OF indexes
+	    // index of any position in the destination array cannot be out of dimension of the map
+	    IF #TI_RowNr < #TIMapRowBoundLow
+	        OR (#TI_RowNr + #TISourceRowBoundUp - #TISourceRowBoundLow) > #TIMapRowBoundUp
+	        OR #TI_LineNr < #TIMapLineBoundLow
+	        OR (#TI_LineNr + #TISourceLineBoundUp - #TISourceLineBoundLow) > #TIMapLineBoundUp
+	    THEN
+	        #TB1WrongIndex := TRUE;
+	    ELSE
+	        #TB1WrongIndex := FALSE;
+	    END_IF;
+	END_REGION
+	
+	REGION Put parts
+	    IF NOT #TB1WrongIndex THEN
+	        FOR #TI_IndexRow := #TISourceRowBoundLow TO #TISourceRowBoundUp DO
+	            FOR #TI_IndexLine := #TISourceLineBoundLow TO #TISourceLineBoundUp DO
+	                REGION Count map indexes
+	                    #TI_RowNr := #II_RowNr + #TI_IndexRow - #TISourceRowBoundLow;
+	                    #TI_LineNr := #II_LineNr + #TI_IndexLine - #TISourceLineBoundLow;
+	                END_REGION
+	                "MTS_Move"(XS_Source := #X_Source[#TI_IndexRow, #TI_IndexLine],
+	                           OS_Destination => #X_Map[#TI_RowNr, #TI_LineNr]);
+	            END_FOR;
+	        END_FOR;
+	    END_IF;
+	END_REGION
+	
+END_FUNCTION
+

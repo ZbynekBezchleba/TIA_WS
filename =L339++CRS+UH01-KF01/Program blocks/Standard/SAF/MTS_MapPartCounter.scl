@@ -1,0 +1,53 @@
+﻿FUNCTION "MTS_MapPartCounter" : Void
+TITLE = Part counter
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+//Counts parts in the map
+   VAR_OUTPUT 
+      OI_NrOfParts : Int;   // Number of parts
+   END_VAR
+
+   VAR_IN_OUT 
+      X_Map : Array[*, *] of "UDT_MatCard";   // Map of parts
+   END_VAR
+
+   VAR_TEMP 
+      TI_IndexRow : Int;   // Row array index
+      TI_IndexLine : Int;   // Line array index
+      TDIMapRowBoundLow : DInt;   // Lower limit of row array
+      TDIMapRowBoundUp : DInt;   // Upper limit of row array
+      TDIMapLineBoundLow : DInt;   // Lower limit of line array
+      TDIMapLineBoundUp : DInt;   // Upperlimit of line array
+      TI_NrOfParts : Int;   // Number of parts
+   END_VAR
+
+
+BEGIN
+	
+	REGION Clear counter
+	    #TI_NrOfParts := 0;
+	END_REGION
+	
+	REGION Array limits
+	    #TDIMapRowBoundLow := LOWER_BOUND(ARR := #X_Map, DIM := 1);
+	    #TDIMapRowBoundUp := UPPER_BOUND(ARR := #X_Map, DIM := 1);
+	    #TDIMapLineBoundLow := LOWER_BOUND(ARR := #X_Map, DIM := 2);
+	    #TDIMapLineBoundUp := UPPER_BOUND(ARR := #X_Map, DIM := 2);
+	END_REGION
+	
+	REGION Count parts
+	    FOR #TI_IndexRow := #TDIMapRowBoundLow TO #TDIMapRowBoundUp DO
+	        FOR #TI_IndexLine := #TDIMapLineBoundLow TO #TDIMapLineBoundUp DO
+	            IF #X_Map[#TI_IndexRow,#TI_IndexLine].Occupied THEN
+	                #TI_NrOfParts := #TI_NrOfParts + 1;
+	            END_IF;
+	        END_FOR;
+	    END_FOR;
+	END_REGION
+	
+	REGION Copy counter value TO output
+	    #OI_NrOfParts := #TI_NrOfParts;
+	END_REGION
+	
+END_FUNCTION
+

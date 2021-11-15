@@ -1,0 +1,89 @@
+﻿FUNCTION "MTS_TimeCounterBSN" : Void
+TITLE = Map time counter
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+//Counts time in the map for all positions
+   VAR_INPUT 
+      IB1Clock_1s : Bool;   // Clock 1 Hz
+      II_CountFromRow : Int;   // Index of row from which the time will be count
+      IR_MinTime : Real;   // Minimal time in furnace (in seconds)
+      IR_MaxTime : Real;   // Maximal time in furnace (in seconds)
+   END_VAR
+
+   VAR_IN_OUT 
+      X_Map : Array[*, *] of "UDT_MatCard";   // Map of parts
+   END_VAR
+
+   VAR_TEMP 
+      TI_IndexRow : Int;   // Row array index
+      TI_IndexLine : Int;   // Line array index
+      TDILowerBoundRow : DInt;   // Lower limit of row array
+      TDIUpperBoundRow : DInt;   // Upperlimit of row array
+      TDILowerBoundLine : DInt;   // Lower limit of line array
+      TDIUpperBoundLine : DInt;   // Upperlimit of line array
+      TI_NoOfParts : Int;   // Number of parts
+      TI_MinTime : Int;   // Minimal time in furnace (in seconds)
+      TI_MaxTime : Int;   // Maximal time in furnace (in seconds)
+      TB1WrongIndex : Bool;   // Index is out of limits
+   END_VAR
+
+
+BEGIN
+	
+	REGION Exit if clock edge is not present
+	    IF NOT #IB1Clock_1s THEN
+	        RETURN;
+	    END_IF;
+	END_REGION
+	
+	REGION Copy input parameters to temporary variables
+	    #TI_IndexRow := #II_CountFromRow;
+	    #TI_MinTime := REAL_TO_INT(#IR_MinTime) * 60;
+	    #TI_MaxTime := REAL_TO_INT(#IR_MaxTime) * 60 ;
+	END_REGION
+	
+	REGION Array limits
+	    #TDILowerBoundRow := LOWER_BOUND(ARR := #X_Map, DIM := 1);
+	    #TDIUpperBoundRow := UPPER_BOUND(ARR := #X_Map, DIM := 1);
+	    #TDILowerBoundLine := LOWER_BOUND(ARR := #X_Map, DIM := 2);
+	    #TDIUpperBoundLine := UPPER_BOUND(ARR := #X_Map, DIM := 2);
+	END_REGION
+	
+	REGION Evaluation OF index
+	    IF #TI_IndexRow < #TDILowerBoundRow OR #TI_IndexRow > #TDIUpperBoundRow THEN
+	        #TB1WrongIndex := TRUE;
+	    ELSE
+	        #TB1WrongIndex := FALSE;
+	    END_IF;
+	END_REGION
+	
+	REGION Count time
+	    FOR #TI_IndexRow := #TI_IndexRow TO #TDIUpperBoundRow DO
+	        FOR #TI_IndexLine := #TDILowerBoundLine TO #TDIUpperBoundLine DO
+	            IF #X_Map[#TI_IndexRow,#TI_IndexLine].Occupied THEN
+	                #X_Map[#TI_IndexRow, #TI_IndexLine].TimeBSN1_s := #X_Map[#TI_IndexRow, #TI_IndexLine].TimeBSN1_s + 1;
+	            END_IF;
+	        END_FOR;
+	    END_FOR;
+	END_REGION
+	
+	REGION Evaluate temperature state FOR last row
+	    FOR #TI_IndexLine := #TDILowerBoundLine TO #TDIUpperBoundLine DO
+	        IF #X_Map[#TDIUpperBoundRow, #TI_IndexLine].Occupied THEN
+	            IF #X_Map[#TI_IndexRow, #TI_IndexLine].TimeBSN1_s < #TI_MinTime THEN
+	                #X_Map[#TDIUpperBoundRow, #TI_IndexLine].Cold := TRUE;
+	                #X_Map[#TDIUpperBoundRow, #TI_IndexLine].Hot := FALSE;
+	            ELSIF #X_Map[#TI_IndexRow, #TI_IndexLine].TimeBSN1_s > #TI_MaxTime THEN
+	                #X_Map[#TDIUpperBoundRow, #TI_IndexLine].Cold := FALSE;
+	                #X_Map[#TDIUpperBoundRow, #TI_IndexLine].Hot := TRUE;
+	            ELSE
+	                #X_Map[#TDIUpperBoundRow, #TI_IndexLine].Cold := FALSE;
+	                #X_Map[#TDIUpperBoundRow, #TI_IndexLine].Hot := FALSE;
+	            END_IF;
+	        END_IF;
+	    END_FOR;
+	END_REGION
+	
+	
+END_FUNCTION
+

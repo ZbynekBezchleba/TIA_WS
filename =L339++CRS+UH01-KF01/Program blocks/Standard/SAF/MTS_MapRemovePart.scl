@@ -1,0 +1,59 @@
+﻿FUNCTION "MTS_MapRemovePart" : Void
+TITLE = Remove part from the map
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+//Clear material data in specified position in the map
+   VAR_INPUT 
+      II_RowIndex : Int;   // Row index for part to remove
+      II_LineIndex : Int;   // Line index for part to remove
+   END_VAR
+
+   VAR_IN_OUT 
+      X_Map : Array[*, *] of "UDT_MatCard";   // Map of parts
+   END_VAR
+
+   VAR_TEMP 
+      TI_IndexRow : Int;   // Row array index
+      TI_IndexLine : Int;   // Line array index
+      TDILowerBoundRow : DInt;   // Lower limit of row array
+      TDIUpperBoundRow : DInt;   // Upper limit of row array
+      TDILowerBoundLine : DInt;   // Lower limit of line array
+      TDIUpperBoundLine : DInt;   // Upper limit of line array
+      TB1WrongIndex : Bool;   // Index is out of limits
+   END_VAR
+
+
+BEGIN
+	
+	REGION Copy input parameters to temporary variables
+	    #TI_IndexRow := #II_RowIndex;
+	    #TI_IndexLine := #II_LineIndex;
+	END_REGION
+	
+	REGION Array limits
+	    #TDILowerBoundRow := LOWER_BOUND(ARR := #X_Map, DIM := 1);
+	    #TDIUpperBoundRow := UPPER_BOUND(ARR := #X_Map, DIM := 1);
+	    #TDILowerBoundLine := LOWER_BOUND(ARR := #X_Map, DIM := 2);
+	    #TDIUpperBoundLine := UPPER_BOUND(ARR := #X_Map, DIM := 2);
+	END_REGION
+	
+	REGION Evaluation OF indexes
+	    IF #TI_IndexRow < #TDILowerBoundRow
+	        OR #TI_IndexRow > #TDIUpperBoundRow
+	        OR #TI_IndexLine < #TDILowerBoundLine
+	        OR #TI_IndexLine > #TDIUpperBoundLine
+	    THEN
+	        #TB1WrongIndex := TRUE;
+	    ELSE
+	        #TB1WrongIndex := FALSE;
+	    END_IF;
+	END_REGION
+	
+	
+	REGION Insert part
+	    IF NOT #TB1WrongIndex THEN
+	        "MTS_Clear"(XS_MatCard := #X_Map[#TI_IndexRow, #TI_IndexLine]);
+	    END_IF;
+	END_REGION
+END_FUNCTION
+

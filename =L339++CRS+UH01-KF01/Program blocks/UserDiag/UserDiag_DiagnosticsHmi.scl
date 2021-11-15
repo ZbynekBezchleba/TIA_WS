@@ -1,0 +1,352 @@
+﻿FUNCTION_BLOCK "UserDiag_DiagnosticsHmi"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_IN_OUT 
+      plcData : "UserDiag_typePLC";   // PLC diagnostics data
+      ioSystemData : Array[1.."USERDIAG_IO_SYSTEMS_UPPER_LIM"] of "UserDiag_typeIOSystem";   // IO-System diagnostics data
+      hmiData : "UserDiag_typeHmiData";   // HMI data
+   END_VAR
+
+   VAR 
+      statFirstRun { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool := TRUE;   // TRUE after startup
+      instAckTON {InstructionName := 'TON_TIME'; LibVersion := '1.0'; ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : TON_TIME;   // Instance of TON_TIME for auto acknowledge
+      instRisFilterErrorDevices {InstructionName := 'R_TRIG'; LibVersion := '1.0'; ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : R_TRIG;   // Instance of R_TRIG for filter error devices
+      statActIOSystem { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Int;   // Actual IO system
+      statActScreenDevices { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Int;   // Actual screen devices
+      statActDeviceOfScreen { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Int;   // Actual device of screen
+   END_VAR
+
+   VAR_TEMP 
+      tempIndex : Int;   // Index of configured devices/slaves
+      tempDeviceIndex : Int;   // Device/slave index
+      tempDeviceCount : Int;   // Device counter
+      tempSlotIndex : Int;   // Slot index
+      tempIoIndex : Int;   // IO system index
+      tempErrorStateLower : Bool;   // Temp error at lower screen
+      tempErrorStateUpper : Bool;   // Temp error at upper screen
+   END_VAR
+
+   VAR CONSTANT 
+      STATE_OK : USInt := 1;   // Device/module state: ok
+      STATE_FAULT : USInt := 2;   // Device/modul state: fault
+      STATE_LOST_CON : USInt := 3;   // Device/modul state: lost connection
+      STATE_DISABLED : USInt := 4;   // Device/modul state: disabled
+      STATE_PROBLEM : USInt := 5;   // Device/modul state: problem
+      STATE_WAS_FAULT : USInt := 12;   // Device/module state: was fault
+      STATE_WAS_LOST : USInt := 13;   // Device/module state: connection was lost
+      STATE_WAS_DISABLED : USInt := 14;   // Device/module state: device was disabled
+      STATE_PROBLEM_GONE : USInt := 15;   // Device/module state: had a problem
+   END_VAR
+
+
+BEGIN
+	//=============================================================================
+	//SIEMENS AG
+	//(c)Copyright 2017 All Rights Reserved
+	//-----------------------------------------------------------------------------
+	//Library: 
+	//Tested with: CPU 1214C DC/DC/DC FW4.2
+	//Engineering: TIA Portal V15
+	//Restrictions: Call in cyclic OB
+	//Requirements: -
+	//Functionality: Copy and control diagnostics information for visualization
+	//-----------------------------------------------------------------------------
+	//Change log table:
+	//Version  Date       Expert in charge                Changes applied
+	//01.00.00 27.01.2017 Siemens Industry Online Support First released version
+	//01.01.00 17.10.2017 Siemens Industry Online Support Single parameters 
+	//                                                    replaced by "hmiData"
+	//01.02.00 20.12.2017 Siemens Industry Online Support Static tags for consistence 
+	//                                                    (Bereichslängenfehler)
+	//=============================================================================
+	
+	//=============================================================================
+	// Auto acknowledge after waiting time
+	//=============================================================================
+	#instAckTON(IN := #statFirstRun,
+	            PT := INT_TO_TIME(#hmiData.ackWaitTime * 1000));
+	
+	IF (#instAckTON.Q = TRUE)
+	THEN
+	  // Acknowledge IO systems
+	  FOR #tempIoIndex := 1 TO "USERDIAG_IO_SYSTEMS_UPPER_LIM" DO
+	    // Initialize the pointer for the first run 
+	    #tempDeviceIndex := #ioSystemData[#tempIoIndex].firstDevice;
+	    
+	    WHILE ((#tempDeviceIndex <= "USERDIAG_DEVICES_PER_IO_SYSTEM_UPPER_LIM")
+	      AND (#tempDeviceIndex > 0))
+	    DO
+	      IF (#ioSystemData[#tempIoIndex].devices[#tempDeviceIndex].configured = TRUE)
+	      THEN
+	        // Acknowledge "was diabled/faulty/prolem/lost state"
+	        IF ((#ioSystemData[#tempIoIndex].devices[#tempDeviceIndex].state = #STATE_WAS_DISABLED)
+	          OR (#ioSystemData[#tempIoIndex].devices[#tempDeviceIndex].state = #STATE_WAS_FAULT)
+	          OR (#ioSystemData[#tempIoIndex].devices[#tempDeviceIndex].state = #STATE_WAS_LOST)
+	          OR (#ioSystemData[#tempIoIndex].devices[#tempDeviceIndex].state = #STATE_PROBLEM_GONE))
+	        THEN
+	          // Device
+	          #ioSystemData[#tempIoIndex].devices[#tempDeviceIndex].state := #STATE_OK;
+	          // Modules
+	          FOR #tempSlotIndex := 0 TO "USERDIAG_SLOTS_PER_DEVICE_UPPER_LIM" DO
+	            IF (#ioSystemData[#tempIoIndex].devices[#tempDeviceIndex].slots[#tempSlotIndex].configured = TRUE)
+	            THEN
+	              #ioSystemData[#tempIoIndex].devices[#tempDeviceIndex].slots[#tempSlotIndex].state := #STATE_OK;
+	            END_IF;
+	          END_FOR;
+	        END_IF;
+	      END_IF;
+	      // Initialize the pointer for the next run
+	      #tempDeviceIndex := #ioSystemData[#tempIoIndex].devices[#tempDeviceIndex].nextDevice;
+	    END_WHILE;
+	    
+	    // Acknowledge local modules
+	    FOR #tempIndex := 0 TO "USERDIAG_SLOTS_PER_PLC_UPPER_LIM" DO
+	      IF ((#plcData.slots[#tempIndex].state = #STATE_WAS_FAULT)
+	        OR (#plcData.slots[#tempIndex].state = #STATE_PROBLEM_GONE))
+	      THEN
+	        #plcData.slots[#tempIndex].state := #STATE_OK;
+	      END_IF;
+	    END_FOR;
+	  END_FOR;
+	  
+	  #statFirstRun := FALSE;
+	END_IF;
+	
+	//=============================================================================
+	// Check if a IO system is selected
+	//=============================================================================
+	// Copy to static tags for consistence
+	#statActIOSystem := #hmiData.actIOSystem;
+	#statActScreenDevices := #hmiData.actScreenDevices;
+	#statActDeviceOfScreen := #hmiData.actDeviceOfScreen;
+	
+	IF ((#statActIOSystem >= 1)
+	  AND (#statActIOSystem <= "USERDIAG_IO_SYSTEMS_UPPER_LIM"))
+	THEN
+	  #hmiData.actIOSystemData.actIOSystemNumber := UINT_TO_INT(#ioSystemData[#statActIOSystem].number);
+	  
+	  // Calculate the maximum count of screens to visualize the devices/slaves
+	  #hmiData.maxScreensDevices := 1;
+	  
+	  IF ((#ioSystemData[#statActIOSystem].actualConfiguredDevices MOD "USERDIAG_DEVICES_PER_SCREEN_UPPER_LIM") = 0)
+	  THEN
+	    #hmiData.maxScreensDevices := #ioSystemData[#statActIOSystem].actualConfiguredDevices / "USERDIAG_DEVICES_PER_SCREEN_UPPER_LIM";
+	  ELSE
+	    #hmiData.maxScreensDevices := #ioSystemData[#statActIOSystem].actualConfiguredDevices / "USERDIAG_DEVICES_PER_SCREEN_UPPER_LIM" + 1;
+	  END_IF;
+	  
+	  //=============================================================================
+	  // Acknowledge
+	  //=============================================================================
+	  IF (#hmiData.ackStates = TRUE)
+	  THEN
+	    // Initialize the pointer for the first run 
+	    #tempDeviceIndex := #ioSystemData[#statActIOSystem].firstDevice;
+	    
+	    WHILE ((#tempDeviceIndex <= "USERDIAG_DEVICES_PER_IO_SYSTEM_UPPER_LIM")
+	      AND (#tempDeviceIndex > 0))
+	    DO
+	      IF (#ioSystemData[#statActIOSystem].devices[#tempDeviceIndex].configured = TRUE)
+	      THEN
+	        // Acknowledge "was diabled/faulty/prolem/lost state"
+	        IF ((#ioSystemData[#statActIOSystem].devices[#tempDeviceIndex].state = #STATE_WAS_DISABLED)
+	          OR (#ioSystemData[#statActIOSystem].devices[#tempDeviceIndex].state = #STATE_WAS_FAULT)
+	          OR (#ioSystemData[#statActIOSystem].devices[#tempDeviceIndex].state = #STATE_WAS_LOST)
+	          OR (#ioSystemData[#statActIOSystem].devices[#tempDeviceIndex].state = #STATE_PROBLEM_GONE))
+	        THEN
+	          // Device
+	          #ioSystemData[#statActIOSystem].devices[#tempDeviceIndex].state := #STATE_OK;
+	          // Modules
+	          FOR #tempSlotIndex := 0 TO "USERDIAG_SLOTS_PER_DEVICE_UPPER_LIM" DO
+	            IF (#ioSystemData[#statActIOSystem].devices[#tempDeviceIndex].slots[#tempSlotIndex].configured = TRUE)
+	            THEN
+	              #ioSystemData[#statActIOSystem].devices[#tempDeviceIndex].slots[#tempSlotIndex].state := #STATE_OK;
+	            END_IF;
+	          END_FOR;
+	        END_IF;
+	      END_IF;
+	      // Initialize the pointer for the next run
+	      #tempDeviceIndex := #ioSystemData[#statActIOSystem].devices[#tempDeviceIndex].nextDevice;
+	    END_WHILE;
+	  END_IF;
+	  
+	  //=============================================================================
+	  // Copy number and status to HMI array
+	  //=============================================================================
+	  // Initialize the pointer for the first run 
+	  #tempDeviceIndex := #ioSystemData[#statActIOSystem].firstDevice;
+	  // Initialize the pointer for devices on screen
+	  #tempIndex := 1;
+	  #tempDeviceCount := 0;
+	  
+	  #instRisFilterErrorDevices(CLK := #hmiData.filterErrorDevices);
+	  IF (#instRisFilterErrorDevices.Q = TRUE)
+	  THEN
+	    #statActScreenDevices := 1;
+	  END_IF;
+	  
+	  WHILE ((#tempDeviceIndex <= "USERDIAG_DEVICES_PER_IO_SYSTEM_UPPER_LIM")
+	    AND (#tempDeviceIndex > 0)
+	    AND (#tempIndex <= "USERDIAG_DEVICES_PER_SCREEN_UPPER_LIM"))
+	  DO
+	    IF (#hmiData.filterErrorDevices = FALSE)
+	    THEN
+	      IF (#ioSystemData[#statActIOSystem].devices[#tempDeviceIndex].configured = TRUE)
+	      THEN
+	        #tempDeviceCount := #tempDeviceCount + 1;
+	        
+	        IF ((#tempDeviceCount > ((#statActScreenDevices - 1) * "USERDIAG_DEVICES_PER_SCREEN_UPPER_LIM"))
+	          AND (#tempDeviceCount <= (#statActScreenDevices * "USERDIAG_DEVICES_PER_SCREEN_UPPER_LIM")))
+	        THEN
+	          // Device configured, status can be copied
+	          #hmiData.actIOSystemData.actIODeviceNumbers[#tempIndex] := #ioSystemData[#statActIOSystem].devices[#tempDeviceIndex].number;
+	          #hmiData.actIOSystemData.actIODeviceState[#tempIndex] := #ioSystemData[#statActIOSystem].devices[#tempDeviceIndex].state;
+	          // Increment index of device per screen
+	          #tempIndex := #tempIndex + 1;
+	          
+	        END_IF;
+	      END_IF;
+	      // Initialize the pointer for the next run
+	      #tempDeviceIndex := #ioSystemData[#statActIOSystem].devices[#tempDeviceIndex].nextDevice;
+	      
+	      //=============================================================================
+	      // If filter is enabled, copy number and status of faulty devices to HMI array
+	      //=============================================================================
+	    ELSIF (#hmiData.filterErrorDevices = TRUE)
+	    THEN
+	      IF ((#ioSystemData[#statActIOSystem].devices[#tempDeviceIndex].configured = TRUE)
+	        AND (#ioSystemData[#statActIOSystem].devices[#tempDeviceIndex].state > 1))
+	      THEN
+	        #tempDeviceCount := #tempDeviceCount + 1;
+	        
+	        IF ((#tempDeviceCount > ((#statActScreenDevices - 1) * "USERDIAG_DEVICES_PER_SCREEN_UPPER_LIM"))
+	          AND (#tempDeviceCount <= (#statActScreenDevices * "USERDIAG_DEVICES_PER_SCREEN_UPPER_LIM")))
+	        THEN
+	          // Device configured, status can be copied
+	          #hmiData.actIOSystemData.actIODeviceNumbers[#tempIndex] := #ioSystemData[#statActIOSystem].devices[#tempDeviceIndex].number;
+	          #hmiData.actIOSystemData.actIODeviceState[#tempIndex] := #ioSystemData[#statActIOSystem].devices[#tempDeviceIndex].state;
+	          // Increment index of device per screen
+	          #tempIndex := #tempIndex + 1;
+	          
+	        END_IF;
+	      END_IF;
+	      // Initialize the pointer for the next run
+	      #tempDeviceIndex := #ioSystemData[#statActIOSystem].devices[#tempDeviceIndex].nextDevice;
+	      
+	    END_IF;
+	  END_WHILE;
+	  
+	  // clear screen
+	  FOR #tempIndex := #tempIndex TO "USERDIAG_DEVICES_PER_SCREEN_UPPER_LIM" DO
+	    // No device configured
+	    #hmiData.actIOSystemData.actIODeviceNumbers[#tempIndex] := 0;
+	    #hmiData.actIOSystemData.actIODeviceState[#tempIndex] := 0;
+	  END_FOR;
+	  
+	  // Popup for device diagnostics
+	  IF ((#hmiData.ioSlotDiagnosticsLoaded = TRUE)
+	    AND (#statActDeviceOfScreen >= 1)
+	    AND (#statActDeviceOfScreen <= "USERDIAG_DEVICES_PER_SCREEN_UPPER_LIM"))
+	  THEN
+	    #tempDeviceIndex := UINT_TO_INT(#hmiData.actIOSystemData.actIODeviceNumbers[#statActDeviceOfScreen]);
+	    #hmiData.actDeviceName := #ioSystemData[#statActIOSystem].devices[#tempDeviceIndex].name;
+	    #hmiData.actDeviceNumber := #ioSystemData[#statActIOSystem].devices[#tempDeviceIndex].number;
+	    #hmiData.actIPAddress := #ioSystemData[#statActIOSystem].devices[#tempDeviceIndex].ipAddress;
+	    
+	    FOR #tempIndex := 0 TO "USERDIAG_SLOTS_PER_SCREEN_UPPER_LIM" DO
+	      IF (#tempIndex <= "USERDIAG_SLOTS_PER_DEVICE_UPPER_LIM")
+	      THEN
+	        #hmiData.actIOSystemData.actDeviceSlotsUsed[#tempIndex] := (#ioSystemData[#statActIOSystem].devices[#tempDeviceIndex].slots[#tempIndex].configured);
+	        #hmiData.actIOSystemData.actDeviceSlotsState[#tempIndex] := #ioSystemData[#statActIOSystem].devices[#tempDeviceIndex].slots[#tempIndex].state;
+	      ELSE
+	        #hmiData.actIOSystemData.actDeviceSlotsUsed[#tempIndex] := FALSE;
+	        #hmiData.actIOSystemData.actDeviceSlotsState[#tempIndex] := 0;
+	      END_IF;
+	    END_FOR;
+	  END_IF;
+	  //===============================================================================================================
+	  // Colors the button, which switches the actual Screen of Devices in case of faulty Device is on different Screen
+	  //===============================================================================================================
+	  #tempIndex := 1;
+	  #tempErrorStateLower := FALSE;
+	  // Check if devices before the shown in actual Screen are faulty
+	  WHILE (#tempIndex <= (#hmiData.actIOSystemData.actIODeviceNumbers[1] - 1))
+	  DO
+	    IF ((#ioSystemData[#statActIOSystem].devices[#tempIndex].state = #STATE_FAULT)
+	      OR (#ioSystemData[#statActIOSystem].devices[#tempIndex].state = #STATE_LOST_CON)
+	      OR (#ioSystemData[#statActIOSystem].devices[#tempIndex].state = #STATE_PROBLEM))
+	    THEN
+	      #tempErrorStateLower := TRUE;
+	    END_IF;
+	    #tempIndex := #tempIndex + 1;
+	  END_WHILE;
+	  
+	  #hmiData.errorAtLowerScreen := #tempErrorStateLower;
+	  
+	  #tempIndex := UINT_TO_INT(#hmiData.actIOSystemData.actIODeviceNumbers["USERDIAG_DEVICES_PER_SCREEN_UPPER_LIM"] + 1);
+	  #tempErrorStateUpper := FALSE;
+	  // Check if devices after the shown in actual Screen are faulty
+	  IF (#tempIndex > 1)
+	  THEN
+	    WHILE ((#tempIndex <= #ioSystemData[#statActIOSystem].lastDevice))
+	    DO
+	      IF ((#ioSystemData[#statActIOSystem].devices[#tempIndex].state = #STATE_FAULT)
+	        OR (#ioSystemData[#statActIOSystem].devices[#tempIndex].state = #STATE_LOST_CON)
+	        OR (#ioSystemData[#statActIOSystem].devices[#tempIndex].state = #STATE_PROBLEM))
+	      THEN
+	        #tempErrorStateUpper := TRUE;
+	      END_IF;
+	      #tempIndex := #tempIndex + 1;
+	    END_WHILE;
+	  END_IF;
+	  
+	  #hmiData.errorAtUpperScreen := #tempErrorStateUpper;
+	  //=============================================================================
+	  // Check if PLC diagnostics is selected
+	  //=============================================================================
+	ELSIF (#statActIOSystem = -1)
+	THEN
+	  //=============================================================================
+	  // Acknowledge
+	  //=============================================================================
+	  IF (#hmiData.ackStates = TRUE)
+	  THEN
+	    FOR #tempIndex := 0 TO "USERDIAG_SLOTS_PER_SCREEN_UPPER_LIM" DO
+	      IF (#tempIndex <= "USERDIAG_SLOTS_PER_PLC_UPPER_LIM")
+	      THEN
+	        IF ((#plcData.slots[#tempIndex].state = #STATE_WAS_FAULT)
+	          OR (#plcData.slots[#tempIndex].state = #STATE_PROBLEM_GONE))
+	        THEN
+	          #plcData.slots[#tempIndex].state := #STATE_OK;
+	        END_IF;
+	      END_IF;
+	    END_FOR;
+	  END_IF;
+	  
+	  //=============================================================================
+	  // Copy PLC diagnostics to HMI
+	  //=============================================================================
+	  FOR #tempIndex := 0 TO "USERDIAG_SLOTS_PER_SCREEN_UPPER_LIM" DO
+	    
+	    IF (#tempIndex <= "USERDIAG_SLOTS_PER_PLC_UPPER_LIM")
+	    THEN
+	      #hmiData.actIOSystemData.actDeviceSlotsUsed[#tempIndex] := (#plcData.slots[#tempIndex].configured);
+	      #hmiData.actIOSystemData.actDeviceSlotsState[#tempIndex] := #plcData.slots[#tempIndex].state;
+	    ELSE
+	      #hmiData.actIOSystemData.actDeviceSlotsUsed[#tempIndex] := FALSE;
+	      #hmiData.actIOSystemData.actDeviceSlotsState[#tempIndex] := 0;
+	    END_IF;
+	  END_FOR;
+	  
+	ELSE
+	  ; // No copy of IO System necessary
+	END_IF;
+	
+	
+	// Set Bit in HMI, if an Error occurs in IO System
+	FOR #tempIoIndex := 1 TO "USERDIAG_IO_SYSTEMS_UPPER_LIM" DO
+	  #hmiData.ioSystemError[#tempIoIndex] := #ioSystemData[#tempIoIndex].error;
+	END_FOR;
+	
+END_FUNCTION_BLOCK
+

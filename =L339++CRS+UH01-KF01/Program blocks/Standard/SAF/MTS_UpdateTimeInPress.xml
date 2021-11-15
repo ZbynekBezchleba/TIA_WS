@@ -1,0 +1,777 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V16" />
+  <DocumentInfo>
+    <Created>2021-11-12T13:31:44.6822865Z</Created>
+    <ExportSetting>WithDefaults</ExportSetting>
+    <InstalledProducts>
+      <Product>
+        <DisplayName>Totally Integrated Automation Portal</DisplayName>
+        <DisplayVersion>V16 Update 3</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>TIA Portal Version Control Interface</DisplayName>
+        <DisplayVersion>V16 Update 2</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>TIA Portal Openness</DisplayName>
+        <DisplayVersion>V16 Update 3</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>SINAMICS Startdrive Advanced</DisplayName>
+        <DisplayVersion>V16 Update 5</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>SINAMICS Startdrive G130, G150, S120, S150, SINAMICS MV, S210</DisplayName>
+        <DisplayVersion>V16 Update 5</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>SINAMICS Startdrive G110M, G120, G120C, G120D, G120P, G115D</DisplayName>
+        <DisplayVersion>V16 Update 5</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>STEP 7 Professional</DisplayName>
+        <DisplayVersion>V16 Update 3</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>STEP 7 Safety</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>WinCC UA Professional</DisplayName>
+        <DisplayVersion>V16 Update 3</DisplayVersion>
+      </Product>
+    </InstalledProducts>
+  </DocumentInfo>
+  <SW.Blocks.FC ID="0">
+    <AttributeList>
+      <AutoNumber>true</AutoNumber>
+      <HeaderAuthor />
+      <HeaderFamily />
+      <HeaderName />
+      <HeaderVersion>0.1</HeaderVersion>
+      <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v4">
+  <Section Name="Input">
+    <Member Name="IB1Clock_1s" Datatype="Bool" Accessibility="Public">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Clock 1 Hz</MultiLanguageText>
+      </Comment>
+    </Member>
+  </Section>
+  <Section Name="Output" />
+  <Section Name="InOut">
+    <Member Name="XS_Position" Datatype="&quot;UDT_MatCard&quot;" Accessibility="Public">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Material data</MultiLanguageText>
+      </Comment>
+      <Sections>
+        <Section Name="None">
+          <Member Name="Enabled" Datatype="Bool" />
+          <Member Name="Ready" Datatype="Bool" />
+          <Member Name="Occupied" Datatype="Bool" />
+          <Member Name="Done" Datatype="Bool" />
+          <Member Name="Cold" Datatype="Bool" />
+          <Member Name="Hot" Datatype="Bool" />
+          <Member Name="NotOK" Datatype="Bool" />
+          <Member Name="State" Datatype="Int" />
+          <Member Name="PartID" Datatype="DInt" />
+          <Member Name="PartType" Datatype="Int" />
+          <Member Name="SCH1Die1Done" Datatype="Bool" />
+          <Member Name="SCH1Die2Done" Datatype="Bool" />
+          <Member Name="SCH1Die3Done" Datatype="Bool" />
+          <Member Name="SCH1Die4Done" Datatype="Bool" />
+          <Member Name="SCH1Die5Done" Datatype="Bool" />
+          <Member Name="TimeBSN1_s" Datatype="Int" />
+          <Member Name="TimeBSN2_s" Datatype="Int" />
+          <Member Name="TimeBSN3_s" Datatype="Int" />
+          <Member Name="TimeBSN4_s" Datatype="Int" />
+          <Member Name="TimeBSN5_s" Datatype="Int" />
+          <Member Name="PartLength" Datatype="Int" />
+          <Member Name="DayNumber" Datatype="Int" />
+          <Member Name="spare_2" Datatype="Int" />
+          <Member Name="spare_3" Datatype="Int" />
+          <Member Name="spare_4" Datatype="Int" />
+          <Member Name="TimeZone2_s" Datatype="Int" />
+          <Member Name="Melt" Datatype="String[3]" />
+        </Section>
+      </Sections>
+    </Member>
+  </Section>
+  <Section Name="Temp">
+    <Member Name="TB1Enable" Datatype="Bool" />
+  </Section>
+  <Section Name="Constant" />
+  <Section Name="Return">
+    <Member Name="Ret_Val" Datatype="Void" Accessibility="Public" />
+  </Section>
+</Sections></Interface>
+      <IsIECCheckEnabled>false</IsIECCheckEnabled>
+      <MemoryLayout>Optimized</MemoryLayout>
+      <Name>MTS_UpdateTimeInPress</Name>
+      <Number>5</Number>
+      <ProgrammingLanguage>LAD</ProgrammingLanguage>
+      <SetENOAutomatically>false</SetENOAutomatically>
+      <UDABlockProperties />
+      <UDAEnableTagReadback>false</UDAEnableTagReadback>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text>Update time in press machine and compare it with technology time limits</Text>
+            </AttributeList>
+          </MultilingualTextItem>
+          <MultilingualTextItem ID="3" CompositionName="Items">
+            <AttributeList>
+              <Culture>cs-CZ</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <SW.Blocks.CompileUnit ID="4" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="XS_Position" />
+        <Component Name="Occupied" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="IB1Clock_1s" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
+      <Symbol>
+        <Component Name="TB1Enable" />
+      </Symbol>
+    </Access>
+    <Part Name="Contact" UId="24" />
+    <Part Name="Contact" UId="25" />
+    <Part Name="Coil" UId="26" />
+  </Parts>
+  <Wires>
+    <Wire UId="27">
+      <Powerrail />
+      <NameCon UId="24" Name="in" />
+    </Wire>
+    <Wire UId="28">
+      <IdentCon UId="21" />
+      <NameCon UId="24" Name="operand" />
+    </Wire>
+    <Wire UId="29">
+      <NameCon UId="24" Name="out" />
+      <NameCon UId="25" Name="in" />
+    </Wire>
+    <Wire UId="30">
+      <IdentCon UId="22" />
+      <NameCon UId="25" Name="operand" />
+    </Wire>
+    <Wire UId="31">
+      <NameCon UId="25" Name="out" />
+      <NameCon UId="26" Name="in" />
+    </Wire>
+    <Wire UId="32">
+      <IdentCon UId="23" />
+      <NameCon UId="26" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="5" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="6" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="7" CompositionName="Items">
+                <AttributeList>
+                  <Culture>cs-CZ</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="8" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="9" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Enable</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="A" CompositionName="Items">
+                <AttributeList>
+                  <Culture>cs-CZ</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="B" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="TB1Enable" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="XS_Position" />
+        <Component Name="TimeZone2_s" />
+      </Symbol>
+    </Access>
+    <Access Scope="LiteralConstant" UId="23">
+      <Constant>
+        <ConstantType>Int</ConstantType>
+        <ConstantValue>1</ConstantValue>
+      </Constant>
+    </Access>
+    <Access Scope="LocalVariable" UId="24">
+      <Symbol>
+        <Component Name="XS_Position" />
+        <Component Name="TimeZone2_s" />
+      </Symbol>
+    </Access>
+    <Part Name="Contact" UId="25" />
+    <Part Name="Add" UId="26" DisabledENO="true">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+      <AutomaticTyped Name="SrcType" />
+    </Part>
+  </Parts>
+  <Wires>
+    <Wire UId="27">
+      <Powerrail />
+      <NameCon UId="25" Name="in" />
+    </Wire>
+    <Wire UId="28">
+      <IdentCon UId="21" />
+      <NameCon UId="25" Name="operand" />
+    </Wire>
+    <Wire UId="29">
+      <NameCon UId="25" Name="out" />
+      <NameCon UId="26" Name="en" />
+    </Wire>
+    <Wire UId="30">
+      <IdentCon UId="22" />
+      <NameCon UId="26" Name="in1" />
+    </Wire>
+    <Wire UId="31">
+      <IdentCon UId="23" />
+      <NameCon UId="26" Name="in2" />
+    </Wire>
+    <Wire UId="32">
+      <NameCon UId="26" Name="out" />
+      <IdentCon UId="24" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="C" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="D" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="E" CompositionName="Items">
+                <AttributeList>
+                  <Culture>cs-CZ</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="F" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="10" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Counting seconds in zone 2</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="11" CompositionName="Items">
+                <AttributeList>
+                  <Culture>cs-CZ</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="12" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="TB1Enable" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="XS_Position" />
+        <Component Name="SCH1Die1Done" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="ProdParam" />
+        <Component Name="MaxTime_BSN1_SCH1Die3" />
+      </Symbol>
+    </Access>
+    <Access Scope="LiteralConstant" UId="24">
+      <Constant>
+        <ConstantType>Int</ConstantType>
+        <ConstantValue>0</ConstantValue>
+      </Constant>
+    </Access>
+    <Access Scope="LocalVariable" UId="25">
+      <Symbol>
+        <Component Name="XS_Position" />
+        <Component Name="TimeZone2_s" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="26">
+      <Symbol>
+        <Component Name="ProdParam" />
+        <Component Name="MaxTime_BSN1_SCH1Die3" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="27">
+      <Symbol>
+        <Component Name="XS_Position" />
+        <Component Name="SCH1Die2Done" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="28">
+      <Symbol>
+        <Component Name="ProdParam" />
+        <Component Name="MaxTime_BSN1_SCH1Die4" />
+      </Symbol>
+    </Access>
+    <Access Scope="LiteralConstant" UId="29">
+      <Constant>
+        <ConstantType>Int</ConstantType>
+        <ConstantValue>0</ConstantValue>
+      </Constant>
+    </Access>
+    <Access Scope="LocalVariable" UId="30">
+      <Symbol>
+        <Component Name="XS_Position" />
+        <Component Name="TimeZone2_s" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="31">
+      <Symbol>
+        <Component Name="ProdParam" />
+        <Component Name="MaxTime_BSN1_SCH1Die4" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="32">
+      <Symbol>
+        <Component Name="XS_Position" />
+        <Component Name="SCH1Die3Done" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="33">
+      <Symbol>
+        <Component Name="ProdParam" />
+        <Component Name="MaxTime_BSN1_SCH1Die5" />
+      </Symbol>
+    </Access>
+    <Access Scope="LiteralConstant" UId="34">
+      <Constant>
+        <ConstantType>Int</ConstantType>
+        <ConstantValue>0</ConstantValue>
+      </Constant>
+    </Access>
+    <Access Scope="LocalVariable" UId="35">
+      <Symbol>
+        <Component Name="XS_Position" />
+        <Component Name="TimeZone2_s" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="36">
+      <Symbol>
+        <Component Name="ProdParam" />
+        <Component Name="MaxTime_BSN1_SCH1Die5" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="37">
+      <Symbol>
+        <Component Name="XS_Position" />
+        <Component Name="SCH1Die4Done" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="38">
+      <Symbol>
+        <Component Name="ProdParam" />
+        <Component Name="MaxTime_BSN1_SCH1Die6" />
+      </Symbol>
+    </Access>
+    <Access Scope="LiteralConstant" UId="39">
+      <Constant>
+        <ConstantType>Int</ConstantType>
+        <ConstantValue>0</ConstantValue>
+      </Constant>
+    </Access>
+    <Access Scope="LocalVariable" UId="40">
+      <Symbol>
+        <Component Name="XS_Position" />
+        <Component Name="TimeZone2_s" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="41">
+      <Symbol>
+        <Component Name="ProdParam" />
+        <Component Name="MaxTime_BSN1_SCH1Die6" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="42">
+      <Symbol>
+        <Component Name="XS_Position" />
+        <Component Name="SCH1Die5Done" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="43">
+      <Symbol>
+        <Component Name="ProdParam" />
+        <Component Name="MaxTime_BSN1_SCH1Die7" />
+      </Symbol>
+    </Access>
+    <Access Scope="LiteralConstant" UId="44">
+      <Constant>
+        <ConstantType>Int</ConstantType>
+        <ConstantValue>0</ConstantValue>
+      </Constant>
+    </Access>
+    <Access Scope="LocalVariable" UId="45">
+      <Symbol>
+        <Component Name="XS_Position" />
+        <Component Name="TimeZone2_s" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="46">
+      <Symbol>
+        <Component Name="ProdParam" />
+        <Component Name="MaxTime_BSN1_SCH1Die7" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="47">
+      <Symbol>
+        <Component Name="XS_Position" />
+        <Component Name="Cold" />
+      </Symbol>
+    </Access>
+    <Part Name="Contact" UId="48" />
+    <Part Name="Contact" UId="49">
+      <Negated Name="operand" />
+    </Part>
+    <Part Name="Gt" UId="50">
+      <TemplateValue Name="SrcType" Type="Type">Int</TemplateValue>
+    </Part>
+    <Part Name="Gt" UId="51">
+      <TemplateValue Name="SrcType" Type="Type">Int</TemplateValue>
+    </Part>
+    <Part Name="Contact" UId="52">
+      <Negated Name="operand" />
+    </Part>
+    <Part Name="Gt" UId="53">
+      <TemplateValue Name="SrcType" Type="Type">Int</TemplateValue>
+    </Part>
+    <Part Name="Gt" UId="54">
+      <TemplateValue Name="SrcType" Type="Type">Int</TemplateValue>
+    </Part>
+    <Part Name="Contact" UId="55">
+      <Negated Name="operand" />
+    </Part>
+    <Part Name="Gt" UId="56">
+      <TemplateValue Name="SrcType" Type="Type">Int</TemplateValue>
+    </Part>
+    <Part Name="Gt" UId="57">
+      <TemplateValue Name="SrcType" Type="Type">Int</TemplateValue>
+    </Part>
+    <Part Name="Contact" UId="58">
+      <Negated Name="operand" />
+    </Part>
+    <Part Name="Gt" UId="59">
+      <TemplateValue Name="SrcType" Type="Type">Int</TemplateValue>
+    </Part>
+    <Part Name="Gt" UId="60">
+      <TemplateValue Name="SrcType" Type="Type">Int</TemplateValue>
+    </Part>
+    <Part Name="Contact" UId="61">
+      <Negated Name="operand" />
+    </Part>
+    <Part Name="Gt" UId="62">
+      <TemplateValue Name="SrcType" Type="Type">Int</TemplateValue>
+    </Part>
+    <Part Name="Gt" UId="63">
+      <TemplateValue Name="SrcType" Type="Type">Int</TemplateValue>
+    </Part>
+    <Part Name="O" UId="64">
+      <TemplateValue Name="Card" Type="Cardinality">5</TemplateValue>
+    </Part>
+    <Part Name="SCoil" UId="65" />
+  </Parts>
+  <Wires>
+    <Wire UId="66">
+      <Powerrail />
+      <NameCon UId="48" Name="in" />
+    </Wire>
+    <Wire UId="67">
+      <IdentCon UId="21" />
+      <NameCon UId="48" Name="operand" />
+    </Wire>
+    <Wire UId="68">
+      <NameCon UId="48" Name="out" />
+      <NameCon UId="49" Name="in" />
+      <NameCon UId="52" Name="in" />
+      <NameCon UId="55" Name="in" />
+      <NameCon UId="58" Name="in" />
+      <NameCon UId="61" Name="in" />
+    </Wire>
+    <Wire UId="69">
+      <IdentCon UId="22" />
+      <NameCon UId="49" Name="operand" />
+    </Wire>
+    <Wire UId="70">
+      <NameCon UId="49" Name="out" />
+      <NameCon UId="50" Name="pre" />
+    </Wire>
+    <Wire UId="71">
+      <IdentCon UId="23" />
+      <NameCon UId="50" Name="in1" />
+    </Wire>
+    <Wire UId="72">
+      <IdentCon UId="24" />
+      <NameCon UId="50" Name="in2" />
+    </Wire>
+    <Wire UId="73">
+      <NameCon UId="50" Name="out" />
+      <NameCon UId="51" Name="pre" />
+    </Wire>
+    <Wire UId="74">
+      <IdentCon UId="25" />
+      <NameCon UId="51" Name="in1" />
+    </Wire>
+    <Wire UId="75">
+      <IdentCon UId="26" />
+      <NameCon UId="51" Name="in2" />
+    </Wire>
+    <Wire UId="76">
+      <NameCon UId="51" Name="out" />
+      <NameCon UId="64" Name="in1" />
+    </Wire>
+    <Wire UId="77">
+      <IdentCon UId="27" />
+      <NameCon UId="52" Name="operand" />
+    </Wire>
+    <Wire UId="78">
+      <NameCon UId="52" Name="out" />
+      <NameCon UId="53" Name="pre" />
+    </Wire>
+    <Wire UId="79">
+      <IdentCon UId="28" />
+      <NameCon UId="53" Name="in1" />
+    </Wire>
+    <Wire UId="80">
+      <IdentCon UId="29" />
+      <NameCon UId="53" Name="in2" />
+    </Wire>
+    <Wire UId="81">
+      <NameCon UId="53" Name="out" />
+      <NameCon UId="54" Name="pre" />
+    </Wire>
+    <Wire UId="82">
+      <IdentCon UId="30" />
+      <NameCon UId="54" Name="in1" />
+    </Wire>
+    <Wire UId="83">
+      <IdentCon UId="31" />
+      <NameCon UId="54" Name="in2" />
+    </Wire>
+    <Wire UId="84">
+      <NameCon UId="54" Name="out" />
+      <NameCon UId="64" Name="in2" />
+    </Wire>
+    <Wire UId="85">
+      <IdentCon UId="32" />
+      <NameCon UId="55" Name="operand" />
+    </Wire>
+    <Wire UId="86">
+      <NameCon UId="55" Name="out" />
+      <NameCon UId="56" Name="pre" />
+    </Wire>
+    <Wire UId="87">
+      <IdentCon UId="33" />
+      <NameCon UId="56" Name="in1" />
+    </Wire>
+    <Wire UId="88">
+      <IdentCon UId="34" />
+      <NameCon UId="56" Name="in2" />
+    </Wire>
+    <Wire UId="89">
+      <NameCon UId="56" Name="out" />
+      <NameCon UId="57" Name="pre" />
+    </Wire>
+    <Wire UId="90">
+      <IdentCon UId="35" />
+      <NameCon UId="57" Name="in1" />
+    </Wire>
+    <Wire UId="91">
+      <IdentCon UId="36" />
+      <NameCon UId="57" Name="in2" />
+    </Wire>
+    <Wire UId="92">
+      <NameCon UId="57" Name="out" />
+      <NameCon UId="64" Name="in3" />
+    </Wire>
+    <Wire UId="93">
+      <IdentCon UId="37" />
+      <NameCon UId="58" Name="operand" />
+    </Wire>
+    <Wire UId="94">
+      <NameCon UId="58" Name="out" />
+      <NameCon UId="59" Name="pre" />
+    </Wire>
+    <Wire UId="95">
+      <IdentCon UId="38" />
+      <NameCon UId="59" Name="in1" />
+    </Wire>
+    <Wire UId="96">
+      <IdentCon UId="39" />
+      <NameCon UId="59" Name="in2" />
+    </Wire>
+    <Wire UId="97">
+      <NameCon UId="59" Name="out" />
+      <NameCon UId="60" Name="pre" />
+    </Wire>
+    <Wire UId="98">
+      <IdentCon UId="40" />
+      <NameCon UId="60" Name="in1" />
+    </Wire>
+    <Wire UId="99">
+      <IdentCon UId="41" />
+      <NameCon UId="60" Name="in2" />
+    </Wire>
+    <Wire UId="100">
+      <NameCon UId="60" Name="out" />
+      <NameCon UId="64" Name="in4" />
+    </Wire>
+    <Wire UId="101">
+      <IdentCon UId="42" />
+      <NameCon UId="61" Name="operand" />
+    </Wire>
+    <Wire UId="102">
+      <NameCon UId="61" Name="out" />
+      <NameCon UId="62" Name="pre" />
+    </Wire>
+    <Wire UId="103">
+      <IdentCon UId="43" />
+      <NameCon UId="62" Name="in1" />
+    </Wire>
+    <Wire UId="104">
+      <IdentCon UId="44" />
+      <NameCon UId="62" Name="in2" />
+    </Wire>
+    <Wire UId="105">
+      <NameCon UId="62" Name="out" />
+      <NameCon UId="63" Name="pre" />
+    </Wire>
+    <Wire UId="106">
+      <IdentCon UId="45" />
+      <NameCon UId="63" Name="in1" />
+    </Wire>
+    <Wire UId="107">
+      <IdentCon UId="46" />
+      <NameCon UId="63" Name="in2" />
+    </Wire>
+    <Wire UId="108">
+      <NameCon UId="63" Name="out" />
+      <NameCon UId="64" Name="in5" />
+    </Wire>
+    <Wire UId="109">
+      <NameCon UId="64" Name="out" />
+      <NameCon UId="65" Name="in" />
+    </Wire>
+    <Wire UId="110">
+      <IdentCon UId="47" />
+      <NameCon UId="65" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="13" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="14" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="15" CompositionName="Items">
+                <AttributeList>
+                  <Culture>cs-CZ</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="16" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="17" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Compare actual time in press machine to tech. time intervals</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="18" CompositionName="Items">
+                <AttributeList>
+                  <Culture>cs-CZ</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <MultilingualText ID="19" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="1A" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text>Update time in press machine</Text>
+            </AttributeList>
+          </MultilingualTextItem>
+          <MultilingualTextItem ID="1B" CompositionName="Items">
+            <AttributeList>
+              <Culture>cs-CZ</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+    </ObjectList>
+  </SW.Blocks.FC>
+</Document>

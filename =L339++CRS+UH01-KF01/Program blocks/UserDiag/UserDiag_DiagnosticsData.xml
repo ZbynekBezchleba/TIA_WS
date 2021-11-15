@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V16" />
+  <DocumentInfo>
+    <Created>2021-11-12T13:33:22.4793073Z</Created>
+    <ExportSetting>WithDefaults</ExportSetting>
+    <InstalledProducts>
+      <Product>
+        <DisplayName>Totally Integrated Automation Portal</DisplayName>
+        <DisplayVersion>V16 Update 3</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>TIA Portal Version Control Interface</DisplayName>
+        <DisplayVersion>V16 Update 2</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>TIA Portal Openness</DisplayName>
+        <DisplayVersion>V16 Update 3</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>SINAMICS Startdrive Advanced</DisplayName>
+        <DisplayVersion>V16 Update 5</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>SINAMICS Startdrive G130, G150, S120, S150, SINAMICS MV, S210</DisplayName>
+        <DisplayVersion>V16 Update 5</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>SINAMICS Startdrive G110M, G120, G120C, G120D, G120P, G115D</DisplayName>
+        <DisplayVersion>V16 Update 5</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>STEP 7 Professional</DisplayName>
+        <DisplayVersion>V16 Update 3</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>STEP 7 Safety</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>WinCC UA Professional</DisplayName>
+        <DisplayVersion>V16 Update 3</DisplayVersion>
+      </Product>
+    </InstalledProducts>
+  </DocumentInfo>
+  <SW.Blocks.GlobalDB ID="0">
+    <AttributeList>
+      <AutoNumber>false</AutoNumber>
+      <DBAccessibleFromOPCUA>true</DBAccessibleFromOPCUA>
+      <HeaderAuthor />
+      <HeaderFamily />
+      <HeaderName />
+      <HeaderVersion>0.1</HeaderVersion>
+      <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v4">
+  <Section Name="Static">
+    <Member Name="plcData" Datatype="&quot;UserDiag_typePLC&quot;" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">PLC diagnostics data</MultiLanguageText><MultiLanguageText Lang="de-DE">PLC diagnostics data</MultiLanguageText></Comment><Sections><Section Name="None"><Member Name="hardwareId" Datatype="HW_DEVICE" /><Member Name="error" Datatype="Bool" /><Member Name="actualConfiguredSlots" Datatype="Int" /><Member Name="slots" Datatype="Array[0..&quot;USERDIAG_SLOTS_PER_PLC_UPPER_LIM&quot;] of &quot;UserDiag_typeSlot&quot;"><Sections><Section Name="None"><Member Name="hardwareId" Datatype="HW_IO" /><Member Name="state" Datatype="USInt" /><Member Name="exists" Datatype="Bool" /><Member Name="configured" Datatype="Bool" /><Member Name="faulty" Datatype="Bool" /><Member Name="problem" Datatype="Bool" /><Member Name="disabled" Datatype="Bool" /><Member Name="error" Datatype="Bool" /></Section></Sections></Member></Section></Sections></Member>
+    <Member Name="ioSystemData" Datatype="Array[1..&quot;USERDIAG_IO_SYSTEMS_UPPER_LIM&quot;] of &quot;UserDiag_typeIOSystem&quot;" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">IO-System diagnostics data</MultiLanguageText><MultiLanguageText Lang="de-DE">IO-System diagnostics data</MultiLanguageText></Comment><Sections><Section Name="None"><Member Name="hardwareId" Datatype="HW_IOSYSTEM" /><Member Name="number" Datatype="UInt" /><Member Name="error" Datatype="Bool" /><Member Name="firstDevice" Datatype="Int" /><Member Name="lastDevice" Datatype="Int" /><Member Name="actualConfiguredDevices" Datatype="Int" /><Member Name="devices" Datatype="Array[1..&quot;USERDIAG_DEVICES_PER_IO_SYSTEM_UPPER_LIM&quot;] of &quot;UserDiag_typeDevice&quot;"><Sections><Section Name="None"><Member Name="hardwareId" Datatype="HW_DEVICE" /><Member Name="number" Datatype="UInt" /><Member Name="name" Datatype="String[50]" /><Member Name="ipAddress" Datatype="IP_V4" Version="1.0"><Sections><Section Name="None"><Member Name="ADDR" Datatype="Array[1..4] of Byte" /></Section></Sections></Member><Member Name="state" Datatype="USInt" /><Member Name="exists" Datatype="Bool" /><Member Name="configured" Datatype="Bool" /><Member Name="faulty" Datatype="Bool" /><Member Name="problem" Datatype="Bool" /><Member Name="disabled" Datatype="Bool" /><Member Name="error" Datatype="Bool" /><Member Name="nextDevice" Datatype="Int" /><Member Name="actualConfiguredSlots" Datatype="Int" /><Member Name="slots" Datatype="Array[0..&quot;USERDIAG_SLOTS_PER_DEVICE_UPPER_LIM&quot;] of &quot;UserDiag_typeSlot&quot;"><Sections><Section Name="None"><Member Name="hardwareId" Datatype="HW_IO" /><Member Name="state" Datatype="USInt" /><Member Name="exists" Datatype="Bool" /><Member Name="configured" Datatype="Bool" /><Member Name="faulty" Datatype="Bool" /><Member Name="problem" Datatype="Bool" /><Member Name="disabled" Datatype="Bool" /><Member Name="error" Datatype="Bool" /></Section></Sections></Member></Section></Sections></Member></Section></Sections></Member>
+    <Member Name="startDiag" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="de-DE">Startflag for diagnostic</MultiLanguageText><MultiLanguageText Lang="en-US">Startflag for diagnostic</MultiLanguageText></Comment></Member>
+  </Section>
+</Sections></Interface>
+      <IsOnlyStoredInLoadMemory>false</IsOnlyStoredInLoadMemory>
+      <IsRetainMemResEnabled>false</IsRetainMemResEnabled>
+      <IsWriteProtectedInAS>false</IsWriteProtectedInAS>
+      <MemoryLayout>Optimized</MemoryLayout>
+      <MemoryReserve>100</MemoryReserve>
+      <Name>UserDiag_DiagnosticsData</Name>
+      <Number>21001</Number>
+      <ProgrammingLanguage>DB</ProgrammingLanguage>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+          <MultilingualTextItem ID="3" CompositionName="Items">
+            <AttributeList>
+              <Culture>cs-CZ</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <MultilingualText ID="4" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="5" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text>Diagosis data DB</Text>
+            </AttributeList>
+          </MultilingualTextItem>
+          <MultilingualTextItem ID="6" CompositionName="Items">
+            <AttributeList>
+              <Culture>cs-CZ</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+    </ObjectList>
+  </SW.Blocks.GlobalDB>
+</Document>

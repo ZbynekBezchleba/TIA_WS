@@ -1,0 +1,40 @@
+﻿FUNCTION "MTS_Clear" : Void
+TITLE = Clear position
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+//Clear material data of the position
+   VAR_IN_OUT 
+      XS_MatCard : "UDT_MatCard";
+   END_VAR
+
+
+BEGIN
+	
+	//#XS_MatCard.Enabled := TRUE;
+	#XS_MatCard.Ready := FALSE;
+	#XS_MatCard.Occupied := FALSE;
+	#XS_MatCard.Done := FALSE;
+	#XS_MatCard.Cold := FALSE;
+	#XS_MatCard.Hot := FALSE;
+	#XS_MatCard.NotOK := FALSE;
+	
+	#XS_MatCard.State := 10;
+	#XS_MatCard.PartID := 0;
+	#XS_MatCard.PartType := 0;
+	
+	#XS_MatCard.SCH1Die1Done := FALSE;
+	#XS_MatCard.SCH1Die2Done := FALSE;
+	#XS_MatCard.SCH1Die3Done := FALSE;
+	#XS_MatCard.SCH1Die4Done := FALSE;
+	#XS_MatCard.SCH1Die5Done := FALSE;
+	
+	#XS_MatCard.TimeBSN1_s := 0;
+	#XS_MatCard.TimeBSN2_s := 0;
+	#XS_MatCard.TimeBSN3_s := 0;
+	#XS_MatCard.TimeBSN4_s := 0;
+	#XS_MatCard.TimeBSN5_s := 0;
+	
+	#XS_MatCard.TimeZone2_s := 0;
+	
+END_FUNCTION
+

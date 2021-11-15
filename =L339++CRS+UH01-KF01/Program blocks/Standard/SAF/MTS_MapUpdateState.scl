@@ -1,0 +1,78 @@
+﻿FUNCTION "MTS_MapUpdateState" : Void
+TITLE = Map time counter
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+//Counts time in the map for all positions
+   VAR_INPUT 
+      IB1Clock_1s : Bool;   // Clock 1 Hz
+   END_VAR
+
+   VAR_IN_OUT 
+      X_Map : Array[*, *] of "UDT_MatCard";   // Map of parts
+   END_VAR
+
+   VAR_TEMP 
+      TI_IndexRow : Int;   // Row array index
+      TI_IndexLine : Int;   // Line array index
+      TDIMapRowBoundLow : DInt;   // Lower limit of row array
+      TDIMapRowBoundUp : DInt;   // Upper limit of row array
+      TDIMapLineBoundLow : DInt;   // Lower limit of line array
+      TDIMapLineBoundUp : DInt;   // Upperlimit of line array
+      TB1WrongIndex : Bool;   // Index is out of limits
+      TI_State : Int;   // State number for HMI
+   END_VAR
+
+
+BEGIN
+	
+	REGION Exit if clock edge is not present
+	    IF NOT #IB1Clock_1s THEN
+	        RETURN;
+	    END_IF;
+	END_REGION
+	
+	REGION Array limits
+	    #TDIMapRowBoundLow := LOWER_BOUND(ARR := #X_Map, DIM := 1);
+	    #TDIMapRowBoundUp := UPPER_BOUND(ARR := #X_Map, DIM := 1);
+	    #TDIMapLineBoundLow := LOWER_BOUND(ARR := #X_Map, DIM := 2);
+	    #TDIMapLineBoundUp := UPPER_BOUND(ARR := #X_Map, DIM := 2);
+	END_REGION
+	
+	REGION Position states in map    
+	    FOR #TI_IndexRow := #TDIMapRowBoundLow TO #TDIMapRowBoundUp DO
+	        FOR #TI_IndexLine := #TDIMapLineBoundLow TO #TDIMapLineBoundUp DO
+	            #TI_State := 0;
+	            IF #X_Map[#TI_IndexRow, #TI_IndexLine].Cold OR #X_Map[#TI_IndexRow, #TI_IndexLine].Hot THEN
+	                #X_Map[#TI_IndexRow, #TI_IndexLine].NotOK := TRUE;      //part NOK          
+	            END_IF;
+	            IF #X_Map[#TI_IndexRow, #TI_IndexLine].Enabled AND NOT #X_Map[#TI_IndexRow, #TI_IndexLine].Occupied THEN
+	                #TI_State := 10;        //position free   
+	            END_IF;
+	            IF #X_Map[#TI_IndexRow, #TI_IndexLine].Enabled AND #X_Map[#TI_IndexRow, #TI_IndexLine].Ready THEN
+	                #TI_State := 20;        //position ready
+	            END_IF;
+	            IF #X_Map[#TI_IndexRow, #TI_IndexLine].Occupied THEN
+	                #TI_State := 30;        //position occupied
+	            END_IF;
+	            IF #X_Map[#TI_IndexRow, #TI_IndexLine].Done THEN
+	                #TI_State := 40;        //part done
+	            END_IF;
+	            IF #X_Map[#TI_IndexRow, #TI_IndexLine].NotOK THEN
+	                #TI_State := 80;        //part NOK
+	            END_IF;
+	            IF #X_Map[#TI_IndexRow, #TI_IndexLine].Cold THEN
+	                #TI_State := 60;        //part cold
+	            END_IF;
+	            IF #X_Map[#TI_IndexRow, #TI_IndexLine].Hot THEN
+	                #TI_State := 70;        //part hot
+	            END_IF;
+	            #X_Map[#TI_IndexRow, #TI_IndexLine].State := #TI_State;     //writing state number to MatCard structure
+	        END_FOR;
+	    END_FOR;
+	END_REGION
+	
+	
+	
+	
+END_FUNCTION
+

@@ -1,0 +1,64 @@
+﻿FUNCTION "MTS_CreateNewPart" : Void
+TITLE = Create new part
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+//Create new part with specified part type
+   VAR_INPUT 
+      II_PartType : Int;   // Production type
+      II_DayNumber : Int;   // Forging day 
+      I_Melt : String;
+   END_VAR
+
+   VAR_IN_OUT 
+      XS_MatCard : "UDT_MatCard";
+      XDI_PartID : DInt;
+   END_VAR
+
+   VAR_TEMP 
+      TDI_PartID : DInt;
+   END_VAR
+
+
+BEGIN
+	
+	//#XS_MatCard.Enabled := TRUE;
+	#XS_MatCard.Ready := FALSE;
+	#XS_MatCard.Occupied := TRUE;
+	#XS_MatCard.Done := FALSE;
+	#XS_MatCard.Cold := FALSE;
+	#XS_MatCard.Hot := FALSE;
+	#XS_MatCard.NotOK := FALSE;
+	
+	#XS_MatCard.State := 30;
+	
+	#TDI_PartID := #XDI_PartID;
+	IF #TDI_PartID >= 500000000 THEN
+	    #TDI_PartID := 0;
+	END_IF;
+	
+	#TDI_PartID := #TDI_PartID + 1;
+	#XS_MatCard.PartID := #TDI_PartID;
+	#XDI_PartID := #TDI_PartID;
+	
+	#XS_MatCard.PartType := #II_PartType;
+	#XS_MatCard.Melt := #I_Melt;
+	#XS_MatCard.DayNumber := #II_DayNumber;
+	
+	#XS_MatCard.SCH1Die1Done := FALSE;
+	#XS_MatCard.SCH1Die2Done := FALSE;
+	#XS_MatCard.SCH1Die3Done := FALSE;
+	#XS_MatCard.SCH1Die4Done := FALSE;
+	#XS_MatCard.SCH1Die5Done := FALSE;
+	
+	#XS_MatCard.TimeBSN1_s := 0;
+	#XS_MatCard.TimeBSN2_s := 0;
+	#XS_MatCard.TimeBSN3_s := 0;
+	#XS_MatCard.TimeBSN4_s := 0;
+	#XS_MatCard.TimeBSN5_s := 0;
+	
+	#XS_MatCard.TimeZone2_s := 0;
+	
+	
+	
+END_FUNCTION
+

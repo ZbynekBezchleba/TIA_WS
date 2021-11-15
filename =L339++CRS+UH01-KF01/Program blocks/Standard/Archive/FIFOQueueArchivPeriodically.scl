@@ -1,0 +1,33 @@
+﻿FUNCTION_BLOCK "FIFOQueueArchivPeriodically"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_INPUT 
+      Lenght : Int;
+   END_VAR
+
+   VAR_IN_OUT 
+      Data : "UDT_DataColl_Periodically";
+      Dummy : "UDT_DataColl_Periodically";
+   END_VAR
+
+   VAR_TEMP 
+      tmp1 : Int;
+      tmp2 : Int;
+      tmp3 : Int;
+   END_VAR
+
+
+BEGIN
+	#tmp2 := #Lenght;
+	FOR #tmp1 := 2 TO #Lenght BY 1 DO
+	    // Statement section FOR
+	    "DataCollArchivePeriodically".ArchiveLine[#tmp2] := "DataCollArchivePeriodically".ArchiveLine[#tmp2 - 1];
+	    #tmp2 := #tmp2 - 1;
+	    
+	END_FOR;
+	"DataCollArchivePeriodically".ArchiveLine[1] := #Data;
+	#Data := #Dummy;
+	
+	
+END_FUNCTION_BLOCK
+

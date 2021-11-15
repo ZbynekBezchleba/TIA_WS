@@ -1,0 +1,55 @@
+﻿FUNCTION "MTS_MapLineEnable" : Void
+TITLE = Enable/disable line of the map
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+//Enable/disable specified line of the map
+   VAR_INPUT 
+      II_LineNr : Int;   // Line number for first part to insert
+      IB1EnableLine : Bool;   // Enable/disable the line
+   END_VAR
+
+   VAR_IN_OUT 
+      X_Map : Array[*, *] of "UDT_MatCard";   // Map of parts
+   END_VAR
+
+   VAR_TEMP 
+      TI_RowNr : Int;   // Row number
+      TI_LineNr : Int;   // Line number
+      TDIMapRowBoundLow : DInt;   // Lower limit of row dimension of map
+      TDIMapRowBoundUp : DInt;   // Upper limit of row dimension of map
+      TDIMapLineBoundLow : DInt;   // Lower limit of line dimension of map
+      TDIMapLineBoundUp : DInt;   // Upper limit of line dimension of map
+      TB1WrongIndex : Bool;   // Index is out of limits
+   END_VAR
+
+
+BEGIN
+	
+	REGION Copy input parameters to temporary variables   
+	    #TI_LineNr := #II_LineNr;
+	END_REGION
+	
+	REGION Map dimensions
+	    #TDIMapRowBoundLow := LOWER_BOUND(ARR := #X_Map, DIM := 1); // Lower limit of row dimension
+	    #TDIMapRowBoundUp := UPPER_BOUND(ARR := #X_Map, DIM := 1); // Upper limit of row dimension
+	    #TDIMapLineBoundLow := LOWER_BOUND(ARR := #X_Map, DIM := 2); // Lower limit of line dimension
+	    #TDIMapLineBoundUp := UPPER_BOUND(ARR := #X_Map, DIM := 2); // Upper limit of row dimension
+	END_REGION
+	
+	REGION Index evaluation
+	    #TB1WrongIndex := TRUE;
+	    IF #II_LineNr >= #TDIMapLineBoundLow AND #II_LineNr <= #TDIMapLineBoundUp THEN
+	        #TB1WrongIndex := FALSE;
+	    END_IF;
+	END_REGION
+	
+	REGION Enable line
+	    IF NOT #TB1WrongIndex THEN
+	        FOR #TI_RowNr := #TDIMapRowBoundLow TO #TDIMapRowBoundUp DO
+	            #X_Map[#TI_RowNr, #TI_LineNr].Enabled := #IB1EnableLine;
+	        END_FOR;
+	    END_IF;
+	END_REGION
+	
+END_FUNCTION
+

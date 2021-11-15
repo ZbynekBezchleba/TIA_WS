@@ -1,0 +1,33 @@
+﻿FUNCTION_BLOCK "FIFOQueueArchivItem"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_INPUT 
+      Lenght : Int;
+   END_VAR
+
+   VAR_IN_OUT 
+      Data : "UDT_DataColl_Item";
+      Dummy : "UDT_DataColl_Item";
+   END_VAR
+
+   VAR_TEMP 
+      tmp1 : Int;
+      tmp2 : Int;
+      tmp3 : Int;
+   END_VAR
+
+
+BEGIN
+	#tmp2 := #Lenght;
+	FOR #tmp1 := 2 TO #Lenght BY 1 DO
+	    // Statement section FOR
+	    "DataCollArchiveItem".ArchiveLine[#tmp2] := "DataCollArchiveItem".ArchiveLine[#tmp2 - 1];
+	    #tmp2 := #tmp2 - 1;
+	    
+	END_FOR;
+	"DataCollArchiveItem".ArchiveLine[1] := #Data;
+	#Data := #Dummy;
+	
+	
+END_FUNCTION_BLOCK
+

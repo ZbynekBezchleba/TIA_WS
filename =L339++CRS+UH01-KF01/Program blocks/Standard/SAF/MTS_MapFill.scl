@@ -1,0 +1,50 @@
+﻿FUNCTION "MTS_MapFill" : Void
+TITLE = Fill map
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+//Fill all positions in the map with new parts
+   VAR_INPUT 
+      II_PartType : Int;
+   END_VAR
+
+   VAR_IN_OUT 
+      X_Map : Array[*, *] of "UDT_MatCard";   // Map of parts
+   END_VAR
+
+   VAR_TEMP 
+      TI_IndexRow : Int;   // Row array index
+      TI_IndexLine : Int;   // Line array index
+      TDIMapRowBoundLow : DInt;   // Lower limit of row array
+      TDIMapRowBoundUp : DInt;   // Upperlimit of row array
+      TDIMapLineBoundLow : DInt;   // Lower limit of line array
+      TDIMapLineBoundUp : DInt;   // Upperlimit of line array
+      TDI_PartID : DInt;
+   END_VAR
+
+
+BEGIN
+	
+	REGION Array limits
+	    #TDIMapRowBoundLow := LOWER_BOUND(ARR := #X_Map, DIM := 1);
+	    #TDIMapRowBoundUp := UPPER_BOUND(ARR := #X_Map, DIM := 1);
+	    #TDIMapLineBoundLow := LOWER_BOUND(ARR := #X_Map, DIM := 2);
+	    #TDIMapLineBoundUp := UPPER_BOUND(ARR := #X_Map, DIM := 2);
+	END_REGION
+	
+	REGION Fill map    
+	    #TDI_PartID := 10000; 
+	    FOR #TI_IndexRow := #TDIMapRowBoundLow TO #TDIMapRowBoundUp DO
+	        FOR #TI_IndexLine := #TDIMapLineBoundLow TO #TDIMapLineBoundUp DO
+	            IF #X_Map[#TI_IndexRow, #TI_IndexLine].Enabled THEN
+	                "MTS_CreateNewPart"(II_PartType := #II_PartType,
+	                                    II_DayNumber:="ProdParam".DayNumber,
+	                                    I_Melt:="ProdParam".Melt,
+	                                    XS_MatCard := #X_Map[#TI_IndexRow, #TI_IndexLine],
+	                                    XDI_PartID := #TDI_PartID);
+	            END_IF;
+	
+	        END_FOR;
+	    END_FOR;
+	END_REGION
+END_FUNCTION
+

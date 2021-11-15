@@ -1,0 +1,110 @@
+﻿FUNCTION_BLOCK "UserDiag_GetIPAddress"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_OUTPUT 
+      error { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool := FALSE;   // Rising edge informs that an error occurred during the execution of the FB
+      status { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Word := #STATUS_EXECUTION_FINISHED;   // Current status of FB
+      statusID { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Word;   // Current status ID of calling instruction
+   END_VAR
+
+   VAR_IN_OUT 
+      ioSystemData : "UserDiag_typeIOSystem";   // IO-System diagnostics data
+   END_VAR
+
+   VAR 
+      statError { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool := FALSE;   // Static value for output error
+      statStatus { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Word := #STATUS_EXECUTION_FINISHED;   // Static value for output status
+      statStatusID { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Word;   // Static value for output statusID
+      instGetStationInfo {InstructionName := 'GetStationInfo'; LibVersion := '1.1'; ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : GetStationInfo;   // Instance of GetStationInfo
+      statFirstDeviceFlag { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool := TRUE;   // Help tag for the first device in the linked list
+      statDeviceIndex { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Int;   // Device/slave index
+   END_VAR
+
+   VAR_TEMP 
+      tempIP {InstructionName := 'IF_CONF_v4'; LibVersion := '1.0'} : IF_CONF_v4;   // Temporary IP address
+   END_VAR
+
+   VAR CONSTANT 
+      STATUS_EXECUTION_FINISHED : Word := 16#0000;   // Execution finished without errors
+      ID_GET_STATION_INFO : Word := 12;   // StatusID during GetStationInfo command
+      MODE_IPV4 : UInt := 1;   // Address parameter according to IPv4
+      LAST_DEVICE : Int := -1;   // No next device
+   END_VAR
+
+
+BEGIN
+	//=============================================================================
+	//SIEMENS AG
+	//(c)Copyright 2015 All Rights Reserved
+	//-----------------------------------------------------------------------------
+	//Library: 
+	//Tested with: CPU 1214C DC/DC/DC FW4.2
+	//Engineering: TIA Portal V15
+	//Restrictions: Call in cyclic OB
+	//Requirements: -
+	//Functionality: Get IP address of IO devices
+	//-----------------------------------------------------------------------------
+	//Change log table:
+	//Version  Date       Expert in charge                Changes applied
+	//01.00.00 20.12.2017 Siemens Industry Online Support First released version
+	//=============================================================================
+	
+	//=============================================================================
+	// Go through existing devices and get IP address
+	//=============================================================================
+	// Initialize the pointer for the first run 
+	IF (#statFirstDeviceFlag = TRUE)
+	THEN
+	  #statDeviceIndex := #ioSystemData.firstDevice;
+	  #statFirstDeviceFlag := FALSE;
+	END_IF;
+	
+	// Check and store the IP address, if the device is existing
+	// GetStationInfo is an acyclic instruction. In the FB, the
+	// instruction has to be repeated until it is done or error
+	IF ((#ioSystemData.number >= 100)
+	  AND (#ioSystemData.number <= 115)
+	  AND (#ioSystemData.devices[#statDeviceIndex].exists = TRUE)
+	  AND (#ioSystemData.devices[#statDeviceIndex].ipAddress.ADDR[1] = 0))
+	THEN
+	  // Get IP address of each decive in PN System
+	  #instGetStationInfo(REQ := TRUE,
+	                      LADDR := #ioSystemData.devices[#statDeviceIndex].hardwareId,
+	                      MODE := #MODE_IPV4,
+	                      DATA := #tempIP);
+	  
+	  IF (#instGetStationInfo.ERROR = TRUE)
+	  THEN
+	    // Error handling
+	    #statStatus := #instGetStationInfo.STATUS;
+	    #statStatusID := #ID_GET_STATION_INFO;
+	    #statError := TRUE;
+	    
+	    // Everything is ok --> Copy IP address    
+	  ELSIF (#instGetStationInfo.DONE = TRUE)
+	  THEN
+	    #ioSystemData.devices[#statDeviceIndex].ipAddress := #tempIP.InterfaceAddress;
+	    
+	    // Initialize the pointer for the next run
+	    #statDeviceIndex := #ioSystemData.devices[#statDeviceIndex].nextDevice;
+	  ELSE
+	    ;
+	  END_IF;
+	ELSE
+	  // Initialize the pointer for the next run
+	  #statDeviceIndex := #ioSystemData.devices[#statDeviceIndex].nextDevice;
+	END_IF;
+	
+	// Check last device
+	IF (#statDeviceIndex = #LAST_DEVICE)
+	THEN
+	  #statDeviceIndex := #ioSystemData.firstDevice;
+	END_IF;
+	
+	// Write static values to outputs
+	#error := #statError;
+	#status := #statStatus;
+	#statusID := #statStatusID;
+	
+END_FUNCTION_BLOCK
+

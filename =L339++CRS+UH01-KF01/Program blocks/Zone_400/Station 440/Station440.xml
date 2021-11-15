@@ -1,0 +1,2054 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V16" />
+  <DocumentInfo>
+    <Created>2021-11-12T13:33:08.5566535Z</Created>
+    <ExportSetting>WithDefaults</ExportSetting>
+    <InstalledProducts>
+      <Product>
+        <DisplayName>Totally Integrated Automation Portal</DisplayName>
+        <DisplayVersion>V16 Update 3</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>TIA Portal Version Control Interface</DisplayName>
+        <DisplayVersion>V16 Update 2</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>TIA Portal Openness</DisplayName>
+        <DisplayVersion>V16 Update 3</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>SINAMICS Startdrive Advanced</DisplayName>
+        <DisplayVersion>V16 Update 5</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>SINAMICS Startdrive G130, G150, S120, S150, SINAMICS MV, S210</DisplayName>
+        <DisplayVersion>V16 Update 5</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>SINAMICS Startdrive G110M, G120, G120C, G120D, G120P, G115D</DisplayName>
+        <DisplayVersion>V16 Update 5</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>STEP 7 Professional</DisplayName>
+        <DisplayVersion>V16 Update 3</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>STEP 7 Safety</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>WinCC UA Professional</DisplayName>
+        <DisplayVersion>V16 Update 3</DisplayVersion>
+      </Product>
+    </InstalledProducts>
+  </DocumentInfo>
+  <SW.Blocks.FB ID="0">
+    <AttributeList>
+      <AutoNumber>true</AutoNumber>
+      <HeaderAuthor />
+      <HeaderFamily />
+      <HeaderName />
+      <HeaderVersion>0.1</HeaderVersion>
+      <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v4">
+  <Section Name="Input" />
+  <Section Name="Output" />
+  <Section Name="InOut" />
+  <Section Name="Static">
+    <Member Name="SF_GL01_MA01" Datatype="&quot;STD_Drive1&quot;" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Sections><Section Name="Input"><Member Name="IS_ZoneM" Datatype="&quot;UDT_Status_main&quot;"><Sections><Section Name="None"><Member Name="Aut" Datatype="Bool" /><Member Name="AutoRun" Datatype="Bool" /><Member Name="Man" Datatype="Bool" /><Member Name="Serv" Datatype="Bool" /><Member Name="Run" Datatype="Bool" /><Member Name="CollWrn" Datatype="Bool" /><Member Name="CollErr" Datatype="Bool" /></Section></Sections></Member><Member Name="IS_ZoneS" Datatype="&quot;UDT_Zone_Status_specific&quot;"><Sections><Section Name="None"><Member Name="AckSfty1" Datatype="Bool" /><Member Name="FuncBtn1" Datatype="Bool" /><Member Name="EnManHMI1" Datatype="Bool" /><Member Name="AckSfty2" Datatype="Bool" /><Member Name="FuncBtn2" Datatype="Bool" /><Member Name="EnManHMI2" Datatype="Bool" /><Member Name="AckSfty3" Datatype="Bool" /><Member Name="FuncBtn3" Datatype="Bool" /><Member Name="EnManHMI3" Datatype="Bool" /><Member Name="GhostRun" Datatype="Bool" /><Member Name="DryRun" Datatype="Bool" /><Member Name="EnManLcl" Datatype="Bool" /><Member Name="AutStart" Datatype="Bool" /><Member Name="Ack" Datatype="Bool" /><Member Name="EmgStop" Datatype="Bool" /><Member Name="AlmSupp" Datatype="Bool" /><Member Name="AutRdy" Datatype="Bool" /><Member Name="AllAutoRun" Datatype="Bool" /><Member Name="AllEndOfCycle" Datatype="Bool" /><Member Name="AllEndOfProd" Datatype="Bool" /><Member Name="AllInBasePos" Datatype="Bool" /><Member Name="AllStopBefor" Datatype="Bool" /><Member Name="AllStopAfter" Datatype="Bool" /><Member Name="AllPause" Datatype="Bool" /><Member Name="ReqEndOfCycle" Datatype="Bool" /><Member Name="ReqEndOfProd" Datatype="Bool" /><Member Name="ReqBasePos" Datatype="Bool" /><Member Name="ReqPause" Datatype="Bool" /><Member Name="ModeAutStep" Datatype="Bool" /><Member Name="ReqNextStep" Datatype="Bool" /><Member Name="ModeStopBefor" Datatype="Bool" /><Member Name="ModeStopAfter" Datatype="Bool" /><Member Name="ModeBypas" Datatype="Bool" /><Member Name="AutoRunProd" Datatype="Bool" /><Member Name="AutoRunBasePos" Datatype="Bool" /><Member Name="ClrSel" Datatype="Bool" /><Member Name="FuncBtn1PanelNr" Datatype="Int" /><Member Name="FuncBtn2PanelNr" Datatype="Int" /><Member Name="FuncBtn3PanelNr" Datatype="Int" /><Member Name="DevSelNr" Datatype="Int" /></Section></Sections></Member><Member Name="IB1GenRelDir1" Datatype="Bool" /><Member Name="IB1GenRelDir2" Datatype="Bool" /><Member Name="IB1IntlDir1" Datatype="Bool" /><Member Name="IB1IntlDir2" Datatype="Bool" /><Member Name="IB1AutDir1" Datatype="Bool" /><Member Name="IB1AutDir2" Datatype="Bool" /><Member Name="IB1DevFdbDir1" Datatype="Bool" /><Member Name="IB1DevFdbDir2" Datatype="Bool" /><Member Name="IT_DevFdbDly" Datatype="Time" /><Member Name="IB1AlmSupp" Datatype="Bool" /><Member Name="IB1ExtErr" Datatype="Bool" /><Member Name="IB1ManDir1" Datatype="Bool" /><Member Name="IB1ManDir2" Datatype="Bool" /><Member Name="IS_DevM" Datatype="&quot;UDT_Status_main&quot;"><Sections><Section Name="None"><Member Name="Aut" Datatype="Bool" /><Member Name="AutoRun" Datatype="Bool" /><Member Name="Man" Datatype="Bool" /><Member Name="Serv" Datatype="Bool" /><Member Name="Run" Datatype="Bool" /><Member Name="CollWrn" Datatype="Bool" /><Member Name="CollErr" Datatype="Bool" /></Section></Sections></Member></Section><Section Name="Output"><Member Name="OS_Status" Datatype="Struct"><Member Name="Main" Datatype="&quot;UDT_Status_main&quot;"><Sections><Section Name="None"><Member Name="Aut" Datatype="Bool" /><Member Name="AutoRun" Datatype="Bool" /><Member Name="Man" Datatype="Bool" /><Member Name="Serv" Datatype="Bool" /><Member Name="Run" Datatype="Bool" /><Member Name="CollWrn" Datatype="Bool" /><Member Name="CollErr" Datatype="Bool" /></Section></Sections></Member><Member Name="Specific" Datatype="&quot;UDT_Drive1_Status_specific&quot;"><Sections><Section Name="None"><Member Name="DevRunDir1" Datatype="Bool" /><Member Name="DevRunDir2" Datatype="Bool" /><Member Name="DevCollErr" Datatype="Bool" /><Member Name="RelDir1" Datatype="Bool" /><Member Name="RelDir2" Datatype="Bool" /><Member Name="ReqOutDir1" Datatype="Bool" /><Member Name="ReqOutDir2" Datatype="Bool" /><Member Name="DevSelEdge" Datatype="Bool" /><Member Name="Sel" Datatype="Bool" /></Section></Sections></Member><Member Name="Error" Datatype="&quot;UDT_Error01&quot;"><Sections><Section Name="None"><Member Name="Error01" Datatype="Word" /></Section></Sections></Member></Member><Member Name="OB1OutDir1" Datatype="Bool" /><Member Name="OB1OutDir2" Datatype="Bool" /></Section><Section Name="InOut"><Member Name="XS_Parameter" Datatype="&quot;UDT_Drive1_Parameter&quot;"><Sections><Section Name="None" /></Sections></Member><Member Name="XS_Command" Datatype="&quot;UDT_Drive1_Command&quot;"><Sections><Section Name="None" /></Sections></Member></Section><Section Name="Static"><Member Name="SS_Alarm" Datatype="Struct"><Member Name="ExtErr" Datatype="Bool" /><Member Name="Res_0_1" Datatype="Bool" /><Member Name="Res_0_2" Datatype="Bool" /><Member Name="Res_0_3" Datatype="Bool" /><Member Name="Res_0_4" Datatype="Bool" /><Member Name="Res_0_5" Datatype="Bool" /><Member Name="Res_0_6" Datatype="Bool" /><Member Name="Res_0_7" Datatype="Bool" /></Member><Member Name="SS_Warning" Datatype="Struct"><Member Name="BothCmd" Datatype="Bool" /><Member Name="Res_0_1" Datatype="Bool" /><Member Name="Res_0_2" Datatype="Bool" /><Member Name="Res_0_3" Datatype="Bool" /><Member Name="Res_0_4" Datatype="Bool" /><Member Name="Res_0_5" Datatype="Bool" /><Member Name="Res_0_6" Datatype="Bool" /><Member Name="Res_0_7" Datatype="Bool" /></Member><Member Name="SB1CollErr" Datatype="Bool" /><Member Name="SB1EdgeSel" Datatype="Bool" /><Member Name="SB1DevSelEdge1" Datatype="Bool" /><Member Name="SB1DevSelEdge2" Datatype="Bool" /><Member Name="ST_TONDevRunDir1" Datatype="TON_TIME" Version="1.0"><Sections><Section Name="None"><Member Name="PT" Datatype="Time" /><Member Name="ET" Datatype="Time" /><Member Name="IN" Datatype="Bool" /><Member Name="Q" Datatype="Bool" /></Section></Sections></Member><Member Name="ST_TONDevRunDir2" Datatype="TON_TIME" Version="1.0"><Sections><Section Name="None"><Member Name="PT" Datatype="Time" /><Member Name="ET" Datatype="Time" /><Member Name="IN" Datatype="Bool" /><Member Name="Q" Datatype="Bool" /></Section></Sections></Member></Section></Sections></Member>
+    <Member Name="SF_UC21_TA1" Datatype="&quot;STD_Siemens_G120_CU240E_2_PN&quot;" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList><Sections><Section Name="Input"><Member Name="IW_HWID" Datatype="HW_SUBMODULE" /><Member Name="IB1ReqDir1" Datatype="Bool" /><Member Name="IB1ReqDir2" Datatype="Bool" /><Member Name="IB1Ack" Datatype="Bool" /><Member Name="IB1AlmSupp" Datatype="Bool" /><Member Name="IB1FIProt" Datatype="Bool" /><Member Name="IB1FICont" Datatype="Bool" /><Member Name="IB1MtrServSwch" Datatype="Bool" /><Member Name="IB1MtrTemp" Datatype="Bool" /><Member Name="IB1MtrBrkProt" Datatype="Bool" /><Member Name="IB1MtrBrkCont" Datatype="Bool" /><Member Name="IB0OFF2" Datatype="Bool" /><Member Name="IB0OFF3" Datatype="Bool" /><Member Name="IR_SpdSP" Datatype="Real" /><Member Name="IR_UpRamp" Datatype="Real" /><Member Name="IR_DownRamp" Datatype="Real" /><Member Name="IT_FIAlmFbk" Datatype="Time" /><Member Name="IT_BrkAlm" Datatype="Time" /><Member Name="IT_Rot" Datatype="Time" /></Section><Section Name="Output"><Member Name="OS_Status" Datatype="Struct"><Member Name="Main" Datatype="&quot;UDT_Status_main&quot;"><Sections><Section Name="None"><Member Name="Aut" Datatype="Bool" /><Member Name="AutoRun" Datatype="Bool" /><Member Name="Man" Datatype="Bool" /><Member Name="Serv" Datatype="Bool" /><Member Name="Run" Datatype="Bool" /><Member Name="CollWrn" Datatype="Bool" /><Member Name="CollErr" Datatype="Bool" /></Section></Sections></Member><Member Name="Specific" Datatype="&quot;UDT_SINAMICS_G120_Status_specific&quot;"><Sections><Section Name="None"><Member Name="OutDir1" Datatype="Bool" /><Member Name="OutDir2" Datatype="Bool" /><Member Name="Rel" Datatype="Bool" /><Member Name="CommOk" Datatype="Bool" /><Member Name="AlmFI" Datatype="Bool" /><Member Name="AmlMtr" Datatype="Bool" /><Member Name="AlmCtrl" Datatype="Bool" /><Member Name="Spd" Datatype="Int" /><Member Name="Curr" Datatype="Int" /><Member Name="Trq" Datatype="Int" /><Member Name="ZSW1_0_RdyForSwchOn" Datatype="Bool" /><Member Name="ZSW1_1_RdyForOpr" Datatype="Bool" /><Member Name="ZSW1_2_OprEn" Datatype="Bool" /><Member Name="ZSW1_3_FltPresent" Datatype="Bool" /><Member Name="ZSW1_4_NoOFF2" Datatype="Bool" /><Member Name="ZSW1_5_NoOFF3" Datatype="Bool" /><Member Name="ZSW1_6_SwchOnIhbtAct" Datatype="Bool" /><Member Name="ZSW1_7_AlmPresent" Datatype="Bool" /><Member Name="ZSW5_ActAlmCode" Datatype="Word" /><Member Name="ZSW6_ActFltCode" Datatype="Word" /></Section></Sections></Member><Member Name="Error" Datatype="&quot;UDT_Error02&quot;"><Sections><Section Name="None"><Member Name="Error01" Datatype="Word" /><Member Name="Error02" Datatype="Word" /></Section></Sections></Member></Member><Member Name="OW_CtrlWord1" Datatype="Word" /><Member Name="OB1_MtrHoldBrkOpn" Datatype="Bool" /></Section><Section Name="InOut"><Member Name="XS_Command" Datatype="&quot;UDT_SINAMICS_G120_Command&quot;"><Sections><Section Name="None" /></Sections></Member><Member Name="XS_Parameter" Datatype="&quot;UDT_SINAMICS_G120_Parameter&quot;"><Sections><Section Name="None" /></Sections></Member></Section><Section Name="Static"><Member Name="SS_Alarm" Datatype="Struct"><Member Name="FIProt" Datatype="Bool" /><Member Name="FICont" Datatype="Bool" /><Member Name="FIFastOff" Datatype="Bool" /><Member Name="FIFbk" Datatype="Bool" /><Member Name="FITemp" Datatype="Bool" /><Member Name="FICommErr" Datatype="Bool" /><Member Name="FINotRdy" Datatype="Bool" /><Member Name="Res_0_7" Datatype="Bool" /><Member Name="MtrServSwch" Datatype="Bool" /><Member Name="MtrTemp" Datatype="Bool" /><Member Name="MtrBrkProt" Datatype="Bool" /><Member Name="MtrBrkCont" Datatype="Bool" /><Member Name="MtrRot" Datatype="Bool" /><Member Name="Res_1_5" Datatype="Bool" /><Member Name="Res_1_6" Datatype="Bool" /><Member Name="InCmdIncoher" Datatype="Bool" /></Member><Member Name="SS_Warning" Datatype="Struct"><Member Name="SpdDeviation" Datatype="Bool" /><Member Name="Res_0_1" Datatype="Bool" /><Member Name="Res_0_2" Datatype="Bool" /><Member Name="Res_0_3" Datatype="Bool" /><Member Name="Res_0_4" Datatype="Bool" /><Member Name="Res_0_5" Datatype="Bool" /><Member Name="Res_0_6" Datatype="Bool" /><Member Name="Res_0_7" Datatype="Bool" /><Member Name="Res_1_0" Datatype="Bool" /><Member Name="Res_1_1" Datatype="Bool" /><Member Name="Res_1_2" Datatype="Bool" /><Member Name="Res_1_3" Datatype="Bool" /><Member Name="Res_1_4" Datatype="Bool" /><Member Name="Res_1_5" Datatype="Bool" /><Member Name="Res_1_6" Datatype="Bool" /><Member Name="Res_1_7" Datatype="Bool" /></Member><Member Name="SI_DPRDDATRetVal" Datatype="Int" /><Member Name="SI_DPWRDATRetVal" Datatype="Int" /><Member Name="SB1DPRDWRCommOK" Datatype="Bool" /><Member Name="SB1OutDir1" Datatype="Bool" /><Member Name="SB1OutDir2" Datatype="Bool" /><Member Name="ST_AlmFbk" Datatype="TON_TIME" Version="1.0"><Sections><Section Name="None"><Member Name="PT" Datatype="Time" /><Member Name="ET" Datatype="Time" /><Member Name="IN" Datatype="Bool" /><Member Name="Q" Datatype="Bool" /></Section></Sections></Member><Member Name="ST_AlmBrake" Datatype="TON_TIME" Version="1.0"><Sections><Section Name="None"><Member Name="PT" Datatype="Time" /><Member Name="ET" Datatype="Time" /><Member Name="IN" Datatype="Bool" /><Member Name="Q" Datatype="Bool" /></Section></Sections></Member><Member Name="ST_AlmFIErr" Datatype="TON_TIME" Version="1.0"><Sections><Section Name="None"><Member Name="PT" Datatype="Time" /><Member Name="ET" Datatype="Time" /><Member Name="IN" Datatype="Bool" /><Member Name="Q" Datatype="Bool" /></Section></Sections></Member><Member Name="ST_RotSense" Datatype="TON_TIME" Version="1.0"><Sections><Section Name="None"><Member Name="PT" Datatype="Time" /><Member Name="ET" Datatype="Time" /><Member Name="IN" Datatype="Bool" /><Member Name="Q" Datatype="Bool" /></Section></Sections></Member><Member Name="ST_AckFl" Datatype="TP_TIME" Version="1.0"><Sections><Section Name="None"><Member Name="PT" Datatype="Time" /><Member Name="ET" Datatype="Time" /><Member Name="IN" Datatype="Bool" /><Member Name="Q" Datatype="Bool" /></Section></Sections></Member></Section></Sections></Member>
+    <Member Name="SF_Alarm1" Datatype="&quot;STD_DI_Mon&quot;" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList><Sections><Section Name="Input"><Member Name="IB1In" Datatype="Bool" /><Member Name="IB1Inv" Datatype="Bool" /><Member Name="IB1Ack" Datatype="Bool" /><Member Name="IB1AlmSupp" Datatype="Bool" /><Member Name="IT_OnDly" Datatype="Time" /><Member Name="IT_OffDly" Datatype="Time" /></Section><Section Name="Output"><Member Name="OS_Status" Datatype="Struct"><Member Name="Main" Datatype="&quot;UDT_Status_main&quot;"><Sections><Section Name="None"><Member Name="Aut" Datatype="Bool" /><Member Name="AutoRun" Datatype="Bool" /><Member Name="Man" Datatype="Bool" /><Member Name="Serv" Datatype="Bool" /><Member Name="Run" Datatype="Bool" /><Member Name="CollWrn" Datatype="Bool" /><Member Name="CollErr" Datatype="Bool" /></Section></Sections></Member><Member Name="Specific" Datatype="&quot;UDT_DI_Mon_Status_specific&quot;"><Sections><Section Name="None"><Member Name="Sig" Datatype="Bool" /><Member Name="AlmDisbl" Datatype="Bool" /></Section></Sections></Member><Member Name="Error" Datatype="&quot;UDT_Error01&quot;"><Sections><Section Name="None"><Member Name="Error01" Datatype="Word" /></Section></Sections></Member></Member></Section><Section Name="InOut"><Member Name="XS_Parameter" Datatype="&quot;UDT_DI_Mon_Parameter&quot;"><Sections><Section Name="None" /></Sections></Member><Member Name="XS_Command" Datatype="&quot;UDT_DI_Mon_Command&quot;"><Sections><Section Name="None" /></Sections></Member></Section><Section Name="Static"><Member Name="SS_Alarm" Datatype="Struct"><Member Name="Alm" Datatype="Bool" /><Member Name="Fail" Datatype="Bool" /><Member Name="Res_0_2" Datatype="Bool" /><Member Name="Res_0_3" Datatype="Bool" /><Member Name="Res_0_4" Datatype="Bool" /><Member Name="Res_0_5" Datatype="Bool" /><Member Name="Res_0_6" Datatype="Bool" /><Member Name="Res_0_7" Datatype="Bool" /></Member><Member Name="SS_Warning" Datatype="Struct"><Member Name="Wrn" Datatype="Bool" /><Member Name="Tol" Datatype="Bool" /><Member Name="Msg" Datatype="Bool" /><Member Name="Res_0_3" Datatype="Bool" /><Member Name="Res_0_4" Datatype="Bool" /><Member Name="Res_0_5" Datatype="Bool" /><Member Name="Res_0_6" Datatype="Bool" /><Member Name="Res_0_7" Datatype="Bool" /></Member><Member Name="ST_TONFltr" Datatype="TON_TIME" Version="1.0"><Sections><Section Name="None"><Member Name="PT" Datatype="Time" /><Member Name="ET" Datatype="Time" /><Member Name="IN" Datatype="Bool" /><Member Name="Q" Datatype="Bool" /></Section></Sections></Member><Member Name="ST_TOFFltr" Datatype="TOF_TIME" Version="1.0"><Sections><Section Name="None"><Member Name="PT" Datatype="Time" /><Member Name="ET" Datatype="Time" /><Member Name="IN" Datatype="Bool" /><Member Name="Q" Datatype="Bool" /></Section></Sections></Member><Member Name="SB1Alm" Datatype="Bool" /><Member Name="SB1Ack" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="SF_Alarm2" Datatype="&quot;STD_DI_Mon&quot;" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList><Sections><Section Name="Input"><Member Name="IB1In" Datatype="Bool" /><Member Name="IB1Inv" Datatype="Bool" /><Member Name="IB1Ack" Datatype="Bool" /><Member Name="IB1AlmSupp" Datatype="Bool" /><Member Name="IT_OnDly" Datatype="Time" /><Member Name="IT_OffDly" Datatype="Time" /></Section><Section Name="Output"><Member Name="OS_Status" Datatype="Struct"><Member Name="Main" Datatype="&quot;UDT_Status_main&quot;"><Sections><Section Name="None"><Member Name="Aut" Datatype="Bool" /><Member Name="AutoRun" Datatype="Bool" /><Member Name="Man" Datatype="Bool" /><Member Name="Serv" Datatype="Bool" /><Member Name="Run" Datatype="Bool" /><Member Name="CollWrn" Datatype="Bool" /><Member Name="CollErr" Datatype="Bool" /></Section></Sections></Member><Member Name="Specific" Datatype="&quot;UDT_DI_Mon_Status_specific&quot;"><Sections><Section Name="None"><Member Name="Sig" Datatype="Bool" /><Member Name="AlmDisbl" Datatype="Bool" /></Section></Sections></Member><Member Name="Error" Datatype="&quot;UDT_Error01&quot;"><Sections><Section Name="None"><Member Name="Error01" Datatype="Word" /></Section></Sections></Member></Member></Section><Section Name="InOut"><Member Name="XS_Parameter" Datatype="&quot;UDT_DI_Mon_Parameter&quot;"><Sections><Section Name="None" /></Sections></Member><Member Name="XS_Command" Datatype="&quot;UDT_DI_Mon_Command&quot;"><Sections><Section Name="None" /></Sections></Member></Section><Section Name="Static"><Member Name="SS_Alarm" Datatype="Struct"><Member Name="Alm" Datatype="Bool" /><Member Name="Fail" Datatype="Bool" /><Member Name="Res_0_2" Datatype="Bool" /><Member Name="Res_0_3" Datatype="Bool" /><Member Name="Res_0_4" Datatype="Bool" /><Member Name="Res_0_5" Datatype="Bool" /><Member Name="Res_0_6" Datatype="Bool" /><Member Name="Res_0_7" Datatype="Bool" /></Member><Member Name="SS_Warning" Datatype="Struct"><Member Name="Wrn" Datatype="Bool" /><Member Name="Tol" Datatype="Bool" /><Member Name="Msg" Datatype="Bool" /><Member Name="Res_0_3" Datatype="Bool" /><Member Name="Res_0_4" Datatype="Bool" /><Member Name="Res_0_5" Datatype="Bool" /><Member Name="Res_0_6" Datatype="Bool" /><Member Name="Res_0_7" Datatype="Bool" /></Member><Member Name="ST_TONFltr" Datatype="TON_TIME" Version="1.0"><Sections><Section Name="None"><Member Name="PT" Datatype="Time" /><Member Name="ET" Datatype="Time" /><Member Name="IN" Datatype="Bool" /><Member Name="Q" Datatype="Bool" /></Section></Sections></Member><Member Name="ST_TOFFltr" Datatype="TOF_TIME" Version="1.0"><Sections><Section Name="None"><Member Name="PT" Datatype="Time" /><Member Name="ET" Datatype="Time" /><Member Name="IN" Datatype="Bool" /><Member Name="Q" Datatype="Bool" /></Section></Sections></Member><Member Name="SB1Alm" Datatype="Bool" /><Member Name="SB1Ack" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="SF_OnOff" Datatype="&quot;STD_OnOff&quot;" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList><Sections><Section Name="Input"><Member Name="IB_OnOff_1" Datatype="Bool" /><Member Name="IB_OnOff_2" Datatype="Bool" /><Member Name="IB_OnOff_3" Datatype="Bool" /></Section><Section Name="Output"><Member Name="OB_On" Datatype="Bool" /></Section><Section Name="InOut" /><Section Name="Static"><Member Name="SB_Help" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="SF_TOF_BSN4" Datatype="TOF_TIME" Version="1.0" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">TOF timer to stop conv after BSN4 stopped</MultiLanguageText></Comment><Sections><Section Name="None"><Member Name="PT" Datatype="Time" /><Member Name="ET" Datatype="Time" /><Member Name="IN" Datatype="Bool" /><Member Name="Q" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="SB1_PowerOk" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList></Member>
+  </Section>
+  <Section Name="Temp">
+    <Member Name="TS_GL01MA01" Datatype="&quot;UDT_DriveControl&quot;">
+      <Sections>
+        <Section Name="None">
+          <Member Name="GenRelDir1" Datatype="Bool" />
+          <Member Name="GenRelDir2" Datatype="Bool" />
+          <Member Name="IntlDir1" Datatype="Bool" />
+          <Member Name="IntlDir2" Datatype="Bool" />
+          <Member Name="AutDir1" Datatype="Bool" />
+          <Member Name="AutDir2" Datatype="Bool" />
+          <Member Name="ManDir1" Datatype="Bool" />
+          <Member Name="ManDir2" Datatype="Bool" />
+        </Section>
+      </Sections>
+    </Member>
+    <Member Name="TS_UC21TA01" Datatype="Struct">
+      <Member Name="ReqDir1" Datatype="Bool">
+        <Comment>
+          <MultiLanguageText Lang="en-US">Move in direction 1</MultiLanguageText>
+        </Comment>
+      </Member>
+      <Member Name="ReqDir2" Datatype="Bool">
+        <Comment>
+          <MultiLanguageText Lang="en-US">Move in direction 2</MultiLanguageText>
+        </Comment>
+      </Member>
+      <Member Name="AckErr" Datatype="Bool">
+        <Comment>
+          <MultiLanguageText Lang="en-US">Acknowledge error</MultiLanguageText>
+        </Comment>
+      </Member>
+      <Member Name="SpeedSP" Datatype="Real">
+        <Comment>
+          <MultiLanguageText Lang="en-US">Speed setpoint</MultiLanguageText>
+        </Comment>
+      </Member>
+    </Member>
+    <Member Name="TB1_ConvBlock" Datatype="Bool">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Conveyor blocked</MultiLanguageText>
+      </Comment>
+    </Member>
+  </Section>
+  <Section Name="Constant" />
+</Sections></Interface>
+      <IsIECCheckEnabled>false</IsIECCheckEnabled>
+      <IsRetainMemResEnabled>false</IsRetainMemResEnabled>
+      <MemoryLayout>Optimized</MemoryLayout>
+      <MemoryReserve>100</MemoryReserve>
+      <Name>Station440</Name>
+      <Number>56</Number>
+      <ProgrammingLanguage>LAD</ProgrammingLanguage>
+      <SetENOAutomatically>false</SetENOAutomatically>
+      <UDABlockProperties />
+      <UDAEnableTagReadback>false</UDAEnableTagReadback>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+          <MultilingualTextItem ID="3" CompositionName="Items">
+            <AttributeList>
+              <Culture>cs-CZ</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <SW.Blocks.CompileUnit ID="4" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="TS_GL01MA01" />
+        <Component Name="GenRelDir1" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="TS_GL01MA01" />
+        <Component Name="GenRelDir2" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
+      <Symbol>
+        <Component Name="TS_GL01MA01" />
+        <Component Name="IntlDir1" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="24">
+      <Symbol>
+        <Component Name="TS_GL01MA01" />
+        <Component Name="IntlDir2" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="25">
+      <Symbol>
+        <Component Name="TS_GL01MA01" />
+        <Component Name="AutDir1" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="26">
+      <Symbol>
+        <Component Name="TS_GL01MA01" />
+        <Component Name="AutDir2" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="27">
+      <Symbol>
+        <Component Name="TS_GL01MA01" />
+        <Component Name="ManDir1" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="28">
+      <Symbol>
+        <Component Name="TS_GL01MA01" />
+        <Component Name="ManDir2" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="29">
+      <Symbol>
+        <Component Name="TS_UC21TA01" />
+        <Component Name="ReqDir1" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="30">
+      <Symbol>
+        <Component Name="TS_UC21TA01" />
+        <Component Name="ReqDir2" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="31">
+      <Symbol>
+        <Component Name="TS_UC21TA01" />
+        <Component Name="AckErr" />
+      </Symbol>
+    </Access>
+    <Access Scope="LiteralConstant" UId="32">
+      <Constant>
+        <ConstantType>Real</ConstantType>
+        <ConstantValue>0.0</ConstantValue>
+      </Constant>
+    </Access>
+    <Access Scope="LocalVariable" UId="33">
+      <Symbol>
+        <Component Name="TS_UC21TA01" />
+        <Component Name="SpeedSP" />
+      </Symbol>
+    </Access>
+    <Part Name="RCoil" UId="34" />
+    <Part Name="RCoil" UId="35" />
+    <Part Name="RCoil" UId="36" />
+    <Part Name="RCoil" UId="37" />
+    <Part Name="RCoil" UId="38" />
+    <Part Name="RCoil" UId="39" />
+    <Part Name="RCoil" UId="40" />
+    <Part Name="RCoil" UId="41" />
+    <Part Name="Coil" UId="42" />
+    <Part Name="Coil" UId="43" />
+    <Part Name="Coil" UId="44" />
+    <Part Name="Move" UId="45" DisabledENO="true">
+      <TemplateValue Name="Card" Type="Cardinality">1</TemplateValue>
+    </Part>
+  </Parts>
+  <Wires>
+    <Wire UId="46">
+      <Powerrail />
+      <NameCon UId="34" Name="in" />
+      <NameCon UId="42" Name="in" />
+      <NameCon UId="45" Name="en" />
+    </Wire>
+    <Wire UId="47">
+      <IdentCon UId="21" />
+      <NameCon UId="34" Name="operand" />
+    </Wire>
+    <Wire UId="48">
+      <NameCon UId="34" Name="out" />
+      <NameCon UId="35" Name="in" />
+    </Wire>
+    <Wire UId="49">
+      <IdentCon UId="22" />
+      <NameCon UId="35" Name="operand" />
+    </Wire>
+    <Wire UId="50">
+      <NameCon UId="35" Name="out" />
+      <NameCon UId="36" Name="in" />
+    </Wire>
+    <Wire UId="51">
+      <IdentCon UId="23" />
+      <NameCon UId="36" Name="operand" />
+    </Wire>
+    <Wire UId="52">
+      <NameCon UId="36" Name="out" />
+      <NameCon UId="37" Name="in" />
+    </Wire>
+    <Wire UId="53">
+      <IdentCon UId="24" />
+      <NameCon UId="37" Name="operand" />
+    </Wire>
+    <Wire UId="54">
+      <NameCon UId="37" Name="out" />
+      <NameCon UId="38" Name="in" />
+    </Wire>
+    <Wire UId="55">
+      <IdentCon UId="25" />
+      <NameCon UId="38" Name="operand" />
+    </Wire>
+    <Wire UId="56">
+      <NameCon UId="38" Name="out" />
+      <NameCon UId="39" Name="in" />
+    </Wire>
+    <Wire UId="57">
+      <IdentCon UId="26" />
+      <NameCon UId="39" Name="operand" />
+    </Wire>
+    <Wire UId="58">
+      <NameCon UId="39" Name="out" />
+      <NameCon UId="40" Name="in" />
+    </Wire>
+    <Wire UId="59">
+      <IdentCon UId="27" />
+      <NameCon UId="40" Name="operand" />
+    </Wire>
+    <Wire UId="60">
+      <NameCon UId="40" Name="out" />
+      <NameCon UId="41" Name="in" />
+    </Wire>
+    <Wire UId="61">
+      <IdentCon UId="28" />
+      <NameCon UId="41" Name="operand" />
+    </Wire>
+    <Wire UId="62">
+      <IdentCon UId="29" />
+      <NameCon UId="42" Name="operand" />
+    </Wire>
+    <Wire UId="63">
+      <NameCon UId="42" Name="out" />
+      <NameCon UId="43" Name="in" />
+    </Wire>
+    <Wire UId="64">
+      <IdentCon UId="30" />
+      <NameCon UId="43" Name="operand" />
+    </Wire>
+    <Wire UId="65">
+      <NameCon UId="43" Name="out" />
+      <NameCon UId="44" Name="in" />
+    </Wire>
+    <Wire UId="66">
+      <IdentCon UId="31" />
+      <NameCon UId="44" Name="operand" />
+    </Wire>
+    <Wire UId="67">
+      <IdentCon UId="32" />
+      <NameCon UId="45" Name="in" />
+    </Wire>
+    <Wire UId="68">
+      <NameCon UId="45" Name="out1" />
+      <IdentCon UId="33" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="5" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="6" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="7" CompositionName="Items">
+                <AttributeList>
+                  <Culture>cs-CZ</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="8" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="9" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>***************ClearTemporary***************</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="A" CompositionName="Items">
+                <AttributeList>
+                  <Culture>cs-CZ</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="B" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource />
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="C" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="D" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="E" CompositionName="Items">
+                <AttributeList>
+                  <Culture>cs-CZ</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="F" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="10" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>***************SensorsAlarms***************</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="11" CompositionName="Items">
+                <AttributeList>
+                  <Culture>cs-CZ</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="12" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource />
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="13" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="14" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="15" CompositionName="Items">
+                <AttributeList>
+                  <Culture>cs-CZ</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="16" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="17" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>***************ProcesAlarms***************</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="18" CompositionName="Items">
+                <AttributeList>
+                  <Culture>cs-CZ</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="19" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="STATUS_Zone400" />
+        <Component Name="Station440_Mode" />
+        <Component Name="Specific" />
+        <Component Name="EmgStop" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="SB1_PowerOk" />
+      </Symbol>
+    </Access>
+    <Part Name="Contact" UId="23">
+      <Negated Name="operand" />
+    </Part>
+    <Part Name="Coil" UId="24" />
+  </Parts>
+  <Wires>
+    <Wire UId="25">
+      <Powerrail />
+      <NameCon UId="23" Name="in" />
+    </Wire>
+    <Wire UId="26">
+      <IdentCon UId="21" />
+      <NameCon UId="23" Name="operand" />
+    </Wire>
+    <Wire UId="27">
+      <NameCon UId="23" Name="out" />
+      <NameCon UId="24" Name="in" />
+    </Wire>
+    <Wire UId="28">
+      <IdentCon UId="22" />
+      <NameCon UId="24" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1A" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="1B" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="1C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>cs-CZ</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="1D" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="1E" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Power OK</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="1F" CompositionName="Items">
+                <AttributeList>
+                  <Culture>cs-CZ</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="20" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource />
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="21" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="22" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="23" CompositionName="Items">
+                <AttributeList>
+                  <Culture>cs-CZ</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="24" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="25" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>***************GL01_MA01 Conveyor***************</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="26" CompositionName="Items">
+                <AttributeList>
+                  <Culture>cs-CZ</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="27" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="STATUS_000+UH10" />
+        <Component Name="SF21_22" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="TB1_ConvBlock" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
+      <Symbol>
+        <Component Name="TB1_ConvBlock" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="24">
+      <Symbol>
+        <Component Name="000UH10-PF21_X1" />
+      </Symbol>
+    </Access>
+    <Call UId="25">
+      <CallInfo Name="STD_OnOff" BlockType="FB">
+        <Instance Scope="LocalVariable" UId="26">
+          <Component Name="SF_OnOff" />
+        </Instance>
+        <Parameter Name="IB_OnOff_1" Section="Input" Type="Bool" />
+        <Parameter Name="IB_OnOff_2" Section="Input" Type="Bool" />
+        <Parameter Name="IB_OnOff_3" Section="Input" Type="Bool" />
+        <Parameter Name="OB_On" Section="Output" Type="Bool" />
+      </CallInfo>
+    </Call>
+    <Part Name="Contact" UId="27" />
+    <Part Name="Coil" UId="28" />
+  </Parts>
+  <Wires>
+    <Wire UId="31">
+      <Powerrail />
+      <NameCon UId="25" Name="en" />
+      <NameCon UId="27" Name="in" />
+    </Wire>
+    <Wire UId="32">
+      <IdentCon UId="21" />
+      <NameCon UId="25" Name="IB_OnOff_1" />
+    </Wire>
+    <Wire UId="33">
+      <OpenCon UId="29" />
+      <NameCon UId="25" Name="IB_OnOff_2" />
+    </Wire>
+    <Wire UId="34">
+      <OpenCon UId="30" />
+      <NameCon UId="25" Name="IB_OnOff_3" />
+    </Wire>
+    <Wire UId="35">
+      <NameCon UId="25" Name="OB_On" />
+      <IdentCon UId="22" />
+    </Wire>
+    <Wire UId="36">
+      <IdentCon UId="23" />
+      <NameCon UId="27" Name="operand" />
+    </Wire>
+    <Wire UId="37">
+      <NameCon UId="27" Name="out" />
+      <NameCon UId="28" Name="in" />
+    </Wire>
+    <Wire UId="38">
+      <IdentCon UId="24" />
+      <NameCon UId="28" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="28" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="29" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="2A" CompositionName="Items">
+                <AttributeList>
+                  <Culture>cs-CZ</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="2B" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="2C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>GL01_MA01 - blocking conveyor</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="2D" CompositionName="Items">
+                <AttributeList>
+                  <Culture>cs-CZ</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="2E" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="SB1_PowerOk" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="TS_GL01MA01" />
+        <Component Name="GenRelDir1" />
+      </Symbol>
+    </Access>
+    <Part Name="Contact" UId="23" />
+    <Part Name="Coil" UId="24" />
+  </Parts>
+  <Wires>
+    <Wire UId="25">
+      <Powerrail />
+      <NameCon UId="23" Name="in" />
+    </Wire>
+    <Wire UId="26">
+      <IdentCon UId="21" />
+      <NameCon UId="23" Name="operand" />
+    </Wire>
+    <Wire UId="27">
+      <NameCon UId="23" Name="out" />
+      <NameCon UId="24" Name="in" />
+    </Wire>
+    <Wire UId="28">
+      <IdentCon UId="22" />
+      <NameCon UId="24" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="2F" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="30" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="31" CompositionName="Items">
+                <AttributeList>
+                  <Culture>cs-CZ</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="32" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="33" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>GL01_MA01 - general release direction 1 on</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="34" CompositionName="Items">
+                <AttributeList>
+                  <Culture>cs-CZ</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="35" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="SB1_PowerOk" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="TS_GL01MA01" />
+        <Component Name="GenRelDir2" />
+      </Symbol>
+    </Access>
+    <Part Name="Contact" UId="23" />
+    <Part Name="Coil" UId="24" />
+  </Parts>
+  <Wires>
+    <Wire UId="25">
+      <Powerrail />
+      <NameCon UId="23" Name="in" />
+    </Wire>
+    <Wire UId="26">
+      <IdentCon UId="21" />
+      <NameCon UId="23" Name="operand" />
+    </Wire>
+    <Wire UId="27">
+      <NameCon UId="23" Name="out" />
+      <NameCon UId="24" Name="in" />
+    </Wire>
+    <Wire UId="28">
+      <IdentCon UId="22" />
+      <NameCon UId="24" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="36" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="37" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="38" CompositionName="Items">
+                <AttributeList>
+                  <Culture>cs-CZ</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="39" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="3A" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>GL01_MA01 - general release direction 2 on</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="3B" CompositionName="Items">
+                <AttributeList>
+                  <Culture>cs-CZ</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="3C" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="SB1_PowerOk" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="STATUS_Zone400" />
+        <Component Name="Station460_Mode" />
+        <Component Name="Main" />
+        <Component Name="CollErr" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
+      <Symbol>
+        <Component Name="TS_GL01MA01" />
+        <Component Name="IntlDir1" />
+      </Symbol>
+    </Access>
+    <Part Name="Contact" UId="24" />
+    <Part Name="Contact" UId="25">
+      <Negated Name="operand" />
+    </Part>
+    <Part Name="Coil" UId="26" />
+  </Parts>
+  <Wires>
+    <Wire UId="27">
+      <Powerrail />
+      <NameCon UId="24" Name="in" />
+    </Wire>
+    <Wire UId="28">
+      <IdentCon UId="21" />
+      <NameCon UId="24" Name="operand" />
+    </Wire>
+    <Wire UId="29">
+      <NameCon UId="24" Name="out" />
+      <NameCon UId="25" Name="in" />
+    </Wire>
+    <Wire UId="30">
+      <IdentCon UId="22" />
+      <NameCon UId="25" Name="operand" />
+    </Wire>
+    <Wire UId="31">
+      <NameCon UId="25" Name="out" />
+      <NameCon UId="26" Name="in" />
+    </Wire>
+    <Wire UId="32">
+      <IdentCon UId="23" />
+      <NameCon UId="26" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="3D" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="3E" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="3F" CompositionName="Items">
+                <AttributeList>
+                  <Culture>cs-CZ</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="40" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="41" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>GL01_MA01 - interlock direction 1 on</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="42" CompositionName="Items">
+                <AttributeList>
+                  <Culture>cs-CZ</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="43" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="SB1_PowerOk" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="TS_GL01MA01" />
+        <Component Name="IntlDir2" />
+      </Symbol>
+    </Access>
+    <Part Name="Contact" UId="23" />
+    <Part Name="Coil" UId="24" />
+  </Parts>
+  <Wires>
+    <Wire UId="25">
+      <Powerrail />
+      <NameCon UId="23" Name="in" />
+    </Wire>
+    <Wire UId="26">
+      <IdentCon UId="21" />
+      <NameCon UId="23" Name="operand" />
+    </Wire>
+    <Wire UId="27">
+      <NameCon UId="23" Name="out" />
+      <NameCon UId="24" Name="in" />
+    </Wire>
+    <Wire UId="28">
+      <IdentCon UId="22" />
+      <NameCon UId="24" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="44" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="45" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="46" CompositionName="Items">
+                <AttributeList>
+                  <Culture>cs-CZ</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="47" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="48" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>GL01_MA01 - interlock direction 2 on</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="49" CompositionName="Items">
+                <AttributeList>
+                  <Culture>cs-CZ</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="4A" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="STATUS_BSN4" />
+        <Component Name="Device" />
+        <Component Name="Specific" />
+        <Component Name="Tact" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="MZG1Comm" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="HMI_PARAM_440" />
+        <Component Name="TOFTime_BSN4_PT" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="24">
+      <Symbol>
+        <Component Name="TB1_ConvBlock" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="25">
+      <Symbol>
+        <Component Name="TS_GL01MA01" />
+        <Component Name="AutDir1" />
+      </Symbol>
+    </Access>
+    <Part Name="Contact" UId="26" />
+    <Part Name="Contact" UId="27" />
+    <Part Name="O" UId="28">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    </Part>
+    <Part Name="TOF" Version="1.0" UId="29">
+      <Instance Scope="LocalVariable" UId="30">
+        <Component Name="SF_TOF_BSN4" />
+      </Instance>
+      <TemplateValue Name="time_type" Type="Type">Time</TemplateValue>
+    </Part>
+    <Part Name="Contact" UId="31">
+      <Negated Name="operand" />
+    </Part>
+    <Part Name="Coil" UId="32" />
+  </Parts>
+  <Wires>
+    <Wire UId="34">
+      <Powerrail />
+      <NameCon UId="26" Name="in" />
+      <NameCon UId="27" Name="in" />
+    </Wire>
+    <Wire UId="35">
+      <IdentCon UId="21" />
+      <NameCon UId="26" Name="operand" />
+    </Wire>
+    <Wire UId="36">
+      <NameCon UId="26" Name="out" />
+      <NameCon UId="28" Name="in1" />
+    </Wire>
+    <Wire UId="37">
+      <IdentCon UId="22" />
+      <NameCon UId="27" Name="operand" />
+    </Wire>
+    <Wire UId="38">
+      <NameCon UId="27" Name="out" />
+      <NameCon UId="28" Name="in2" />
+    </Wire>
+    <Wire UId="39">
+      <NameCon UId="28" Name="out" />
+      <NameCon UId="29" Name="IN" />
+    </Wire>
+    <Wire UId="40">
+      <IdentCon UId="23" />
+      <NameCon UId="29" Name="PT" />
+    </Wire>
+    <Wire UId="41">
+      <NameCon UId="29" Name="Q" />
+      <NameCon UId="31" Name="in" />
+    </Wire>
+    <Wire UId="42">
+      <NameCon UId="29" Name="ET" />
+      <OpenCon UId="33" />
+    </Wire>
+    <Wire UId="43">
+      <IdentCon UId="24" />
+      <NameCon UId="31" Name="operand" />
+    </Wire>
+    <Wire UId="44">
+      <NameCon UId="31" Name="out" />
+      <NameCon UId="32" Name="in" />
+    </Wire>
+    <Wire UId="45">
+      <IdentCon UId="25" />
+      <NameCon UId="32" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="4B" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="4C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="4D" CompositionName="Items">
+                <AttributeList>
+                  <Culture>cs-CZ</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="4E" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="4F" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>GL01_MA01 - automatic direction 1 on</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="50" CompositionName="Items">
+                <AttributeList>
+                  <Culture>cs-CZ</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="51" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="STDLog0" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="TS_GL01MA01" />
+        <Component Name="AutDir2" />
+      </Symbol>
+    </Access>
+    <Part Name="Contact" UId="23" />
+    <Part Name="Coil" UId="24" />
+  </Parts>
+  <Wires>
+    <Wire UId="25">
+      <Powerrail />
+      <NameCon UId="23" Name="in" />
+    </Wire>
+    <Wire UId="26">
+      <IdentCon UId="21" />
+      <NameCon UId="23" Name="operand" />
+    </Wire>
+    <Wire UId="27">
+      <NameCon UId="23" Name="out" />
+      <NameCon UId="24" Name="in" />
+    </Wire>
+    <Wire UId="28">
+      <IdentCon UId="22" />
+      <NameCon UId="24" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="52" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="53" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="54" CompositionName="Items">
+                <AttributeList>
+                  <Culture>cs-CZ</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="55" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="56" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>GL01_MA01 - automatic direction 2 on</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="57" CompositionName="Items">
+                <AttributeList>
+                  <Culture>cs-CZ</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="58" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="STATUS_440" />
+        <Component Name="SF03_24" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="TS_GL01MA01" />
+        <Component Name="ManDir1" />
+      </Symbol>
+    </Access>
+    <Part Name="Contact" UId="23" />
+    <Part Name="Coil" UId="24" />
+  </Parts>
+  <Wires>
+    <Wire UId="25">
+      <Powerrail />
+      <NameCon UId="23" Name="in" />
+    </Wire>
+    <Wire UId="26">
+      <IdentCon UId="21" />
+      <NameCon UId="23" Name="operand" />
+    </Wire>
+    <Wire UId="27">
+      <NameCon UId="23" Name="out" />
+      <NameCon UId="24" Name="in" />
+    </Wire>
+    <Wire UId="28">
+      <IdentCon UId="22" />
+      <NameCon UId="24" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="59" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="5A" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="5B" CompositionName="Items">
+                <AttributeList>
+                  <Culture>cs-CZ</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="5C" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="5D" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>GL01-MA01 - manual direction 1 on</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="5E" CompositionName="Items">
+                <AttributeList>
+                  <Culture>cs-CZ</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="5F" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="STATUS_440" />
+        <Component Name="SF03_14" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="TS_GL01MA01" />
+        <Component Name="ManDir2" />
+      </Symbol>
+    </Access>
+    <Part Name="Contact" UId="23" />
+    <Part Name="Coil" UId="24" />
+  </Parts>
+  <Wires>
+    <Wire UId="25">
+      <Powerrail />
+      <NameCon UId="23" Name="in" />
+    </Wire>
+    <Wire UId="26">
+      <IdentCon UId="21" />
+      <NameCon UId="23" Name="operand" />
+    </Wire>
+    <Wire UId="27">
+      <NameCon UId="23" Name="out" />
+      <NameCon UId="24" Name="in" />
+    </Wire>
+    <Wire UId="28">
+      <IdentCon UId="22" />
+      <NameCon UId="24" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="60" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="61" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="62" CompositionName="Items">
+                <AttributeList>
+                  <Culture>cs-CZ</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="63" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="64" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>GL01-MA01 - manual direction 2 on</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="65" CompositionName="Items">
+                <AttributeList>
+                  <Culture>cs-CZ</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="66" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="STATUS_Zone400" />
+        <Component Name="Station440_Mode" />
+        <Component Name="Main" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="STATUS_Zone400" />
+        <Component Name="Station440_Mode" />
+        <Component Name="Specific" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
+      <Symbol>
+        <Component Name="TS_GL01MA01" />
+        <Component Name="GenRelDir1" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="24">
+      <Symbol>
+        <Component Name="TS_GL01MA01" />
+        <Component Name="GenRelDir2" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="25">
+      <Symbol>
+        <Component Name="TS_GL01MA01" />
+        <Component Name="IntlDir1" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="26">
+      <Symbol>
+        <Component Name="TS_GL01MA01" />
+        <Component Name="IntlDir2" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="27">
+      <Symbol>
+        <Component Name="TS_GL01MA01" />
+        <Component Name="AutDir1" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="28">
+      <Symbol>
+        <Component Name="TS_GL01MA01" />
+        <Component Name="AutDir2" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="29">
+      <Symbol>
+        <Component Name="STATUS_440" />
+        <Component Name="UC21-TA01" />
+        <Component Name="Specific" />
+        <Component Name="OutDir1" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="30">
+      <Symbol>
+        <Component Name="STATUS_440" />
+        <Component Name="UC21-TA01" />
+        <Component Name="Specific" />
+        <Component Name="OutDir2" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="31">
+      <Symbol>
+        <Component Name="STATUS_Zone400" />
+        <Component Name="Station440_Mode" />
+        <Component Name="Specific" />
+        <Component Name="AlmSupp" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="32">
+      <Symbol>
+        <Component Name="STDLog0" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="33">
+      <Symbol>
+        <Component Name="TS_GL01MA01" />
+        <Component Name="ManDir1" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="34">
+      <Symbol>
+        <Component Name="TS_GL01MA01" />
+        <Component Name="ManDir2" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="35">
+      <Symbol>
+        <Component Name="STATUS_440" />
+        <Component Name="UC21-TA01" />
+        <Component Name="Main" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="36">
+      <Symbol>
+        <Component Name="HMI_PARAM_440" />
+        <Component Name="GL01-MA01" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="37">
+      <Symbol>
+        <Component Name="HMI_CMD_440" />
+        <Component Name="GL01-MA01" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="38">
+      <Symbol>
+        <Component Name="STATUS_440" />
+        <Component Name="GL01-MA01" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="39">
+      <Symbol>
+        <Component Name="TS_UC21TA01" />
+        <Component Name="ReqDir1" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="40">
+      <Symbol>
+        <Component Name="TS_UC21TA01" />
+        <Component Name="ReqDir2" />
+      </Symbol>
+    </Access>
+    <Call UId="41">
+      <CallInfo Name="STD_Drive1" BlockType="FB">
+        <Instance Scope="LocalVariable" UId="42">
+          <Component Name="SF_GL01_MA01" />
+        </Instance>
+        <Parameter Name="IS_ZoneM" Section="Input" Type="&quot;UDT_Status_main&quot;" />
+        <Parameter Name="IS_ZoneS" Section="Input" Type="&quot;UDT_Zone_Status_specific&quot;" />
+        <Parameter Name="IB1GenRelDir1" Section="Input" Type="Bool" />
+        <Parameter Name="IB1GenRelDir2" Section="Input" Type="Bool" />
+        <Parameter Name="IB1IntlDir1" Section="Input" Type="Bool" />
+        <Parameter Name="IB1IntlDir2" Section="Input" Type="Bool" />
+        <Parameter Name="IB1AutDir1" Section="Input" Type="Bool" />
+        <Parameter Name="IB1AutDir2" Section="Input" Type="Bool" />
+        <Parameter Name="IB1DevFdbDir1" Section="Input" Type="Bool" />
+        <Parameter Name="IB1DevFdbDir2" Section="Input" Type="Bool" />
+        <Parameter Name="IT_DevFdbDly" Section="Input" Type="Time" />
+        <Parameter Name="IB1AlmSupp" Section="Input" Type="Bool" />
+        <Parameter Name="IB1ExtErr" Section="Input" Type="Bool" />
+        <Parameter Name="IB1ManDir1" Section="Input" Type="Bool" />
+        <Parameter Name="IB1ManDir2" Section="Input" Type="Bool" />
+        <Parameter Name="IS_DevM" Section="Input" Type="&quot;UDT_Status_main&quot;" />
+        <Parameter Name="OS_Status" Section="Output" Type="Struct" />
+        <Parameter Name="OB1OutDir1" Section="Output" Type="Bool" />
+        <Parameter Name="OB1OutDir2" Section="Output" Type="Bool" />
+        <Parameter Name="XS_Parameter" Section="InOut" Type="&quot;UDT_Drive1_Parameter&quot;" />
+        <Parameter Name="XS_Command" Section="InOut" Type="&quot;UDT_Drive1_Command&quot;" />
+      </CallInfo>
+    </Call>
+  </Parts>
+  <Wires>
+    <Wire UId="44">
+      <Powerrail />
+      <NameCon UId="41" Name="en" />
+    </Wire>
+    <Wire UId="45">
+      <IdentCon UId="21" />
+      <NameCon UId="41" Name="IS_ZoneM" />
+    </Wire>
+    <Wire UId="46">
+      <IdentCon UId="22" />
+      <NameCon UId="41" Name="IS_ZoneS" />
+    </Wire>
+    <Wire UId="47">
+      <IdentCon UId="23" />
+      <NameCon UId="41" Name="IB1GenRelDir1" />
+    </Wire>
+    <Wire UId="48">
+      <IdentCon UId="24" />
+      <NameCon UId="41" Name="IB1GenRelDir2" />
+    </Wire>
+    <Wire UId="49">
+      <IdentCon UId="25" />
+      <NameCon UId="41" Name="IB1IntlDir1" />
+    </Wire>
+    <Wire UId="50">
+      <IdentCon UId="26" />
+      <NameCon UId="41" Name="IB1IntlDir2" />
+    </Wire>
+    <Wire UId="51">
+      <IdentCon UId="27" />
+      <NameCon UId="41" Name="IB1AutDir1" />
+    </Wire>
+    <Wire UId="52">
+      <IdentCon UId="28" />
+      <NameCon UId="41" Name="IB1AutDir2" />
+    </Wire>
+    <Wire UId="53">
+      <IdentCon UId="29" />
+      <NameCon UId="41" Name="IB1DevFdbDir1" />
+    </Wire>
+    <Wire UId="54">
+      <IdentCon UId="30" />
+      <NameCon UId="41" Name="IB1DevFdbDir2" />
+    </Wire>
+    <Wire UId="55">
+      <OpenCon UId="43" />
+      <NameCon UId="41" Name="IT_DevFdbDly" />
+    </Wire>
+    <Wire UId="56">
+      <IdentCon UId="31" />
+      <NameCon UId="41" Name="IB1AlmSupp" />
+    </Wire>
+    <Wire UId="57">
+      <IdentCon UId="32" />
+      <NameCon UId="41" Name="IB1ExtErr" />
+    </Wire>
+    <Wire UId="58">
+      <IdentCon UId="33" />
+      <NameCon UId="41" Name="IB1ManDir1" />
+    </Wire>
+    <Wire UId="59">
+      <IdentCon UId="34" />
+      <NameCon UId="41" Name="IB1ManDir2" />
+    </Wire>
+    <Wire UId="60">
+      <IdentCon UId="35" />
+      <NameCon UId="41" Name="IS_DevM" />
+    </Wire>
+    <Wire UId="61">
+      <IdentCon UId="36" />
+      <NameCon UId="41" Name="XS_Parameter" />
+    </Wire>
+    <Wire UId="62">
+      <IdentCon UId="37" />
+      <NameCon UId="41" Name="XS_Command" />
+    </Wire>
+    <Wire UId="63">
+      <NameCon UId="41" Name="OS_Status" />
+      <IdentCon UId="38" />
+    </Wire>
+    <Wire UId="64">
+      <NameCon UId="41" Name="OB1OutDir1" />
+      <IdentCon UId="39" />
+    </Wire>
+    <Wire UId="65">
+      <NameCon UId="41" Name="OB1OutDir2" />
+      <IdentCon UId="40" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="67" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="68" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="69" CompositionName="Items">
+                <AttributeList>
+                  <Culture>cs-CZ</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="6A" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="6B" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>GL01_MA01 Drive block call</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="6C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>cs-CZ</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="6D" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="ProdParam" />
+        <Component Name="440_ConvSpeedSlow" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="TS_UC21TA01" />
+        <Component Name="SpeedSP" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="STATUS_440" />
+        <Component Name="GL01-MA01" />
+        <Component Name="Main" />
+        <Component Name="Man" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="24">
+      <Symbol>
+        <Component Name="ProdParam" />
+        <Component Name="440_ConvSpeed" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="25">
+      <Symbol>
+        <Component Name="TS_UC21TA01" />
+        <Component Name="SpeedSP" />
+      </Symbol>
+    </Access>
+    <Part Name="Move" UId="26" DisabledENO="true">
+      <TemplateValue Name="Card" Type="Cardinality">1</TemplateValue>
+    </Part>
+    <Part Name="Contact" UId="27">
+      <Negated Name="operand" />
+    </Part>
+    <Part Name="Move" UId="28" DisabledENO="true">
+      <TemplateValue Name="Card" Type="Cardinality">1</TemplateValue>
+    </Part>
+  </Parts>
+  <Wires>
+    <Wire UId="29">
+      <Powerrail />
+      <NameCon UId="26" Name="en" />
+      <NameCon UId="27" Name="in" />
+    </Wire>
+    <Wire UId="30">
+      <IdentCon UId="21" />
+      <NameCon UId="26" Name="in" />
+    </Wire>
+    <Wire UId="31">
+      <NameCon UId="26" Name="out1" />
+      <IdentCon UId="22" />
+    </Wire>
+    <Wire UId="32">
+      <IdentCon UId="23" />
+      <NameCon UId="27" Name="operand" />
+    </Wire>
+    <Wire UId="33">
+      <NameCon UId="27" Name="out" />
+      <NameCon UId="28" Name="en" />
+    </Wire>
+    <Wire UId="34">
+      <IdentCon UId="24" />
+      <NameCon UId="28" Name="in" />
+    </Wire>
+    <Wire UId="35">
+      <NameCon UId="28" Name="out1" />
+      <IdentCon UId="25" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="6E" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="6F" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="70" CompositionName="Items">
+                <AttributeList>
+                  <Culture>cs-CZ</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="71" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="72" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>UC21_TA01 - Speed setpoint</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="73" CompositionName="Items">
+                <AttributeList>
+                  <Culture>cs-CZ</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="74" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalConstant" UId="21">
+      <Constant Name="=L339++440+UC21-TA01~PROFINET_interface~SIEMENS_telegram_352" />
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="TS_UC21TA01" />
+        <Component Name="ReqDir1" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
+      <Symbol>
+        <Component Name="TS_UC21TA01" />
+        <Component Name="ReqDir2" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="24">
+      <Symbol>
+        <Component Name="STATUS_Zone400" />
+        <Component Name="Station440_Mode" />
+        <Component Name="Specific" />
+        <Component Name="Ack" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="25">
+      <Symbol>
+        <Component Name="STDLog0" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="26">
+      <Symbol>
+        <Component Name="STATUS_440" />
+        <Component Name="UC21-FC01_14" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="27">
+      <Symbol>
+        <Component Name="STDLog1" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="28">
+      <Symbol>
+        <Component Name="STDLog1" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="29">
+      <Symbol>
+        <Component Name="STDLog1" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="30">
+      <Symbol>
+        <Component Name="STDLog1" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="31">
+      <Symbol>
+        <Component Name="STDLog1" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="32">
+      <Symbol>
+        <Component Name="STDLog1" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="33">
+      <Symbol>
+        <Component Name="TS_UC21TA01" />
+        <Component Name="SpeedSP" />
+      </Symbol>
+    </Access>
+    <Access Scope="TypedConstant" UId="34">
+      <Constant>
+        <ConstantValue>T#4s</ConstantValue>
+      </Constant>
+    </Access>
+    <Access Scope="TypedConstant" UId="35">
+      <Constant>
+        <ConstantValue>T#4s</ConstantValue>
+      </Constant>
+    </Access>
+    <Access Scope="GlobalVariable" UId="36">
+      <Symbol>
+        <Component Name="HMI_CMD_440" />
+        <Component Name="UC21-TA01" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="37">
+      <Symbol>
+        <Component Name="HMI_PARAM_440" />
+        <Component Name="UC21-TA01" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="38">
+      <Symbol>
+        <Component Name="STATUS_440" />
+        <Component Name="UC21-TA01" />
+      </Symbol>
+    </Access>
+    <Call UId="39">
+      <CallInfo Name="STD_Siemens_G120_CU240E_2_PN" BlockType="FB">
+        <Instance Scope="LocalVariable" UId="40">
+          <Component Name="SF_UC21_TA1" />
+        </Instance>
+        <Parameter Name="IW_HWID" Section="Input" Type="HW_SUBMODULE" />
+        <Parameter Name="IB1ReqDir1" Section="Input" Type="Bool" />
+        <Parameter Name="IB1ReqDir2" Section="Input" Type="Bool" />
+        <Parameter Name="IB1Ack" Section="Input" Type="Bool" />
+        <Parameter Name="IB1AlmSupp" Section="Input" Type="Bool" />
+        <Parameter Name="IB1FIProt" Section="Input" Type="Bool" />
+        <Parameter Name="IB1FICont" Section="Input" Type="Bool" />
+        <Parameter Name="IB1MtrServSwch" Section="Input" Type="Bool" />
+        <Parameter Name="IB1MtrTemp" Section="Input" Type="Bool" />
+        <Parameter Name="IB1MtrBrkProt" Section="Input" Type="Bool" />
+        <Parameter Name="IB1MtrBrkCont" Section="Input" Type="Bool" />
+        <Parameter Name="IB0OFF2" Section="Input" Type="Bool" />
+        <Parameter Name="IB0OFF3" Section="Input" Type="Bool" />
+        <Parameter Name="IR_SpdSP" Section="Input" Type="Real" />
+        <Parameter Name="IR_UpRamp" Section="Input" Type="Real" />
+        <Parameter Name="IR_DownRamp" Section="Input" Type="Real" />
+        <Parameter Name="IT_FIAlmFbk" Section="Input" Type="Time" />
+        <Parameter Name="IT_BrkAlm" Section="Input" Type="Time" />
+        <Parameter Name="IT_Rot" Section="Input" Type="Time" />
+        <Parameter Name="OS_Status" Section="Output" Type="Struct" />
+        <Parameter Name="OW_CtrlWord1" Section="Output" Type="Word" />
+        <Parameter Name="OB1_MtrHoldBrkOpn" Section="Output" Type="Bool" />
+        <Parameter Name="XS_Command" Section="InOut" Type="&quot;UDT_SINAMICS_G120_Command&quot;" />
+        <Parameter Name="XS_Parameter" Section="InOut" Type="&quot;UDT_SINAMICS_G120_Parameter&quot;" />
+      </CallInfo>
+    </Call>
+  </Parts>
+  <Wires>
+    <Wire UId="47">
+      <Powerrail />
+      <NameCon UId="39" Name="en" />
+    </Wire>
+    <Wire UId="48">
+      <IdentCon UId="21" />
+      <NameCon UId="39" Name="IW_HWID" />
+    </Wire>
+    <Wire UId="49">
+      <IdentCon UId="22" />
+      <NameCon UId="39" Name="IB1ReqDir1" />
+    </Wire>
+    <Wire UId="50">
+      <IdentCon UId="23" />
+      <NameCon UId="39" Name="IB1ReqDir2" />
+    </Wire>
+    <Wire UId="51">
+      <IdentCon UId="24" />
+      <NameCon UId="39" Name="IB1Ack" />
+    </Wire>
+    <Wire UId="52">
+      <IdentCon UId="25" />
+      <NameCon UId="39" Name="IB1AlmSupp" />
+    </Wire>
+    <Wire UId="53">
+      <IdentCon UId="26" />
+      <NameCon UId="39" Name="IB1FIProt" />
+    </Wire>
+    <Wire UId="54">
+      <IdentCon UId="27" />
+      <NameCon UId="39" Name="IB1FICont" />
+    </Wire>
+    <Wire UId="55">
+      <IdentCon UId="28" />
+      <NameCon UId="39" Name="IB1MtrServSwch" />
+    </Wire>
+    <Wire UId="56">
+      <IdentCon UId="29" />
+      <NameCon UId="39" Name="IB1MtrTemp" />
+    </Wire>
+    <Wire UId="57">
+      <IdentCon UId="30" />
+      <NameCon UId="39" Name="IB1MtrBrkProt" />
+    </Wire>
+    <Wire UId="58">
+      <OpenCon UId="41" />
+      <NameCon UId="39" Name="IB1MtrBrkCont" />
+    </Wire>
+    <Wire UId="59">
+      <IdentCon UId="31" />
+      <NameCon UId="39" Name="IB0OFF2" />
+    </Wire>
+    <Wire UId="60">
+      <IdentCon UId="32" />
+      <NameCon UId="39" Name="IB0OFF3" />
+    </Wire>
+    <Wire UId="61">
+      <IdentCon UId="33" />
+      <NameCon UId="39" Name="IR_SpdSP" />
+    </Wire>
+    <Wire UId="62">
+      <OpenCon UId="42" />
+      <NameCon UId="39" Name="IR_UpRamp" />
+    </Wire>
+    <Wire UId="63">
+      <OpenCon UId="43" />
+      <NameCon UId="39" Name="IR_DownRamp" />
+    </Wire>
+    <Wire UId="64">
+      <IdentCon UId="34" />
+      <NameCon UId="39" Name="IT_FIAlmFbk" />
+    </Wire>
+    <Wire UId="65">
+      <OpenCon UId="44" />
+      <NameCon UId="39" Name="IT_BrkAlm" />
+    </Wire>
+    <Wire UId="66">
+      <IdentCon UId="35" />
+      <NameCon UId="39" Name="IT_Rot" />
+    </Wire>
+    <Wire UId="67">
+      <IdentCon UId="36" />
+      <NameCon UId="39" Name="XS_Command" />
+    </Wire>
+    <Wire UId="68">
+      <IdentCon UId="37" />
+      <NameCon UId="39" Name="XS_Parameter" />
+    </Wire>
+    <Wire UId="69">
+      <NameCon UId="39" Name="OS_Status" />
+      <IdentCon UId="38" />
+    </Wire>
+    <Wire UId="70">
+      <NameCon UId="39" Name="OW_CtrlWord1" />
+      <OpenCon UId="45" />
+    </Wire>
+    <Wire UId="71">
+      <NameCon UId="39" Name="OB1_MtrHoldBrkOpn" />
+      <OpenCon UId="46" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="75" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="76" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="77" CompositionName="Items">
+                <AttributeList>
+                  <Culture>cs-CZ</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="78" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="79" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>UC21_TA01 - Frequency convertor block call</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="7A" CompositionName="Items">
+                <AttributeList>
+                  <Culture>cs-CZ</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <MultilingualText ID="7B" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="7C" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+          <MultilingualTextItem ID="7D" CompositionName="Items">
+            <AttributeList>
+              <Culture>cs-CZ</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+    </ObjectList>
+  </SW.Blocks.FB>
+</Document>

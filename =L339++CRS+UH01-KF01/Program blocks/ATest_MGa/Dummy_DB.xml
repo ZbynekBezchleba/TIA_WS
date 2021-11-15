@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V16" />
+  <DocumentInfo>
+    <Created>2021-11-12T13:33:45.7137772Z</Created>
+    <ExportSetting>WithDefaults</ExportSetting>
+    <InstalledProducts>
+      <Product>
+        <DisplayName>Totally Integrated Automation Portal</DisplayName>
+        <DisplayVersion>V16 Update 3</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>TIA Portal Version Control Interface</DisplayName>
+        <DisplayVersion>V16 Update 2</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>TIA Portal Openness</DisplayName>
+        <DisplayVersion>V16 Update 3</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>SINAMICS Startdrive Advanced</DisplayName>
+        <DisplayVersion>V16 Update 5</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>SINAMICS Startdrive G130, G150, S120, S150, SINAMICS MV, S210</DisplayName>
+        <DisplayVersion>V16 Update 5</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>SINAMICS Startdrive G110M, G120, G120C, G120D, G120P, G115D</DisplayName>
+        <DisplayVersion>V16 Update 5</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>STEP 7 Professional</DisplayName>
+        <DisplayVersion>V16 Update 3</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>STEP 7 Safety</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>WinCC UA Professional</DisplayName>
+        <DisplayVersion>V16 Update 3</DisplayVersion>
+      </Product>
+    </InstalledProducts>
+  </DocumentInfo>
+  <SW.Blocks.GlobalDB ID="0">
+    <AttributeList>
+      <AutoNumber>false</AutoNumber>
+      <DBAccessibleFromOPCUA>true</DBAccessibleFromOPCUA>
+      <HeaderAuthor />
+      <HeaderFamily />
+      <HeaderName />
+      <HeaderVersion>0.1</HeaderVersion>
+      <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v4">
+  <Section Name="Static">
+    <Member Name="R_STATUS_S" Datatype="&quot;UDT_RobotABB_Status_specific&quot;" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Sections><Section Name="None"><Member Name="LimSpd" Datatype="Bool" /><Member Name="TaskExec" Datatype="Bool" /><Member Name="ReqIntl" Datatype="Bool" /><Member Name="RobotPause" Datatype="Bool" /><Member Name="InJob" Datatype="Bool" /><Member Name="EndOfJob" Datatype="Bool" /><Member Name="CollDetect" Datatype="Bool" /><Member Name="PosHome" Datatype="Bool" /><Member Name="PosServ" Datatype="Bool" /><Member Name="PosPkng" Datatype="Bool" /><Member Name="GhostRun" Datatype="Bool" /><Member Name="DryRun" Datatype="Bool" /><Member Name="JobNrValid" Datatype="Bool" /><Member Name="TypeNrValid" Datatype="Bool" /><Member Name="EnBtn" Datatype="Bool" /><Member Name="JobNr" Datatype="UInt" /><Member Name="TypeNr" Datatype="UInt" /><Member Name="PosNr" Datatype="UInt" /><Member Name="ErrorNr" Datatype="UInt" /><Member Name="SeqNr" Datatype="UInt" /><Member Name="ZoneRel" Datatype="&quot;UDT_RobotABB_ZoneRelease&quot;"><Sections><Section Name="None"><Member Name="Zone" Datatype="Array[1..8] of Struct"><Member Name="Request" Datatype="Bool" /><Member Name="Rel" Datatype="Bool" /></Member></Section></Sections></Member><Member Name="OS_Intl" Datatype="&quot;UDT_RobotABB_Interlock&quot;"><Sections><Section Name="None"><Member Name="Station" Datatype="Array[1..8] of Word" /></Section></Sections></Member></Section></Sections></Member>
+    <Member Name="R_GRIPPERSTATUS_S" Datatype="&quot;UDT_RobotGripper_Status_specific&quot;" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Sections><Section Name="None"><Member Name="MediaOK" Datatype="Bool" /><Member Name="GripperError" Datatype="Bool" /><Member Name="IgnoreGripperError" Datatype="Bool" /><Member Name="Res_00_3" Datatype="Bool" /><Member Name="Res_00_4" Datatype="Bool" /><Member Name="Res_00_5" Datatype="Bool" /><Member Name="Res_00_6" Datatype="Bool" /><Member Name="Res_00_7" Datatype="Bool" /><Member Name="Part1InGripper" Datatype="Bool" /><Member Name="Part2InGripper" Datatype="Bool" /><Member Name="Part3InGripper" Datatype="Bool" /><Member Name="Part4InGripper" Datatype="Bool" /><Member Name="Part5InGripper" Datatype="Bool" /><Member Name="Part6InGripper" Datatype="Bool" /><Member Name="Part7InGripper" Datatype="Bool" /><Member Name="Part8InGripper" Datatype="Bool" /><Member Name="RealState" Datatype="DInt" /><Member Name="ErrorState" Datatype="DInt" /></Section></Sections></Member>
+    <Member Name="R_STATUS_M" Datatype="&quot;UDT_Status_main&quot;" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Sections><Section Name="None"><Member Name="Aut" Datatype="Bool" /><Member Name="AutoRun" Datatype="Bool" /><Member Name="Man" Datatype="Bool" /><Member Name="Serv" Datatype="Bool" /><Member Name="Run" Datatype="Bool" /><Member Name="CollWrn" Datatype="Bool" /><Member Name="CollErr" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="R_GRIPPERCOMMANDS" Datatype="&quot;UDT_RobotGripper_Command&quot;" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Sections><Section Name="None"><Member Name="Retest" Datatype="Bool" /><Member Name="Retry" Datatype="Bool" /><Member Name="IgnoreGripperErr" Datatype="Bool" /><Member Name="Res_00_3" Datatype="Bool" /><Member Name="Res_00_4" Datatype="Bool" /><Member Name="Res_00_5" Datatype="Bool" /><Member Name="Res_00_6" Datatype="Bool" /><Member Name="Res_00_7" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="R_PARAM" Datatype="&quot;UDT_RobotABB_Parameter&quot;" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Sections><Section Name="None"><Member Name="MtionSvsn" Datatype="Bool" /><Member Name="Res_0_1" Datatype="Bool" /><Member Name="Res_0_2" Datatype="Bool" /><Member Name="Res_0_3" Datatype="Bool" /><Member Name="Res_0_4" Datatype="Bool" /><Member Name="Res_0_5" Datatype="Bool" /><Member Name="Res_0_6" Datatype="Bool" /><Member Name="Res_0_7" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="DSS" Datatype="&quot;UDT_DriveRobotABB_Status_specific&quot;" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Sections><Section Name="None"><Member Name="EmgStop" Datatype="Bool" /><Member Name="AutoOn" Datatype="Bool" /><Member Name="SftyOK" Datatype="Bool" /><Member Name="MotorOff" Datatype="Bool" /><Member Name="MotorOn" Datatype="Bool" /><Member Name="CtrlRun" Datatype="Bool" /><Member Name="CycleOn" Datatype="Bool" /><Member Name="SimIO" Datatype="Bool" /><Member Name="ReqPause" Datatype="Bool" /><Member Name="CfgLock" Datatype="Bool" /><Member Name="SftySvsnMode" Datatype="Bool" /><Member Name="Sync_R1" Datatype="Bool" /><Member Name="Sync_R2" Datatype="Bool" /><Member Name="Sync_R3" Datatype="Bool" /><Member Name="Sync_R4" Datatype="Bool" /><Member Name="OutOfMonZone1" Datatype="Bool" /><Member Name="OutOfMonZone2" Datatype="Bool" /><Member Name="OutOfMonZone3" Datatype="Bool" /><Member Name="OutOfMonZone4" Datatype="Bool" /><Member Name="OutOfMonZone5" Datatype="Bool" /><Member Name="OutOfMonZone6" Datatype="Bool" /><Member Name="OutOfMonZone7" Datatype="Bool" /><Member Name="OutOfMonZone8" Datatype="Bool" /><Member Name="Initialized" Datatype="Bool" /><Member Name="InitSeqNr" Datatype="Int" /></Section></Sections></Member>
+    <Member Name="RSS" Datatype="&quot;UDT_RobotABB_Status_specific&quot;" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Sections><Section Name="None"><Member Name="LimSpd" Datatype="Bool" /><Member Name="TaskExec" Datatype="Bool" /><Member Name="ReqIntl" Datatype="Bool" /><Member Name="RobotPause" Datatype="Bool" /><Member Name="InJob" Datatype="Bool" /><Member Name="EndOfJob" Datatype="Bool" /><Member Name="CollDetect" Datatype="Bool" /><Member Name="PosHome" Datatype="Bool" /><Member Name="PosServ" Datatype="Bool" /><Member Name="PosPkng" Datatype="Bool" /><Member Name="GhostRun" Datatype="Bool" /><Member Name="DryRun" Datatype="Bool" /><Member Name="JobNrValid" Datatype="Bool" /><Member Name="TypeNrValid" Datatype="Bool" /><Member Name="EnBtn" Datatype="Bool" /><Member Name="JobNr" Datatype="UInt" /><Member Name="TypeNr" Datatype="UInt" /><Member Name="PosNr" Datatype="UInt" /><Member Name="ErrorNr" Datatype="UInt" /><Member Name="SeqNr" Datatype="UInt" /><Member Name="ZoneRel" Datatype="&quot;UDT_RobotABB_ZoneRelease&quot;"><Sections><Section Name="None"><Member Name="Zone" Datatype="Array[1..8] of Struct"><Member Name="Request" Datatype="Bool" /><Member Name="Rel" Datatype="Bool" /></Member></Section></Sections></Member><Member Name="OS_Intl" Datatype="&quot;UDT_RobotABB_Interlock&quot;"><Sections><Section Name="None"><Member Name="Station" Datatype="Array[1..8] of Word" /></Section></Sections></Member></Section></Sections></Member>
+    <Member Name="R_COMMANDS" Datatype="&quot;UDT_RobotABB_Command&quot;" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Sections><Section Name="None"><Member Name="Init" Datatype="Bool" /><Member Name="GhostRunOn" Datatype="Bool" /><Member Name="GhostRunOff" Datatype="Bool" /><Member Name="DryRunOn" Datatype="Bool" /><Member Name="DryRunOff" Datatype="Bool" /><Member Name="ServPos" Datatype="Bool" /><Member Name="Res_0_6" Datatype="Bool" /><Member Name="Res_0_7" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="ZS" Datatype="&quot;UDT_Zone_Status_specific&quot;" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Sections><Section Name="None"><Member Name="AckSfty1" Datatype="Bool" /><Member Name="FuncBtn1" Datatype="Bool" /><Member Name="EnManHMI1" Datatype="Bool" /><Member Name="AckSfty2" Datatype="Bool" /><Member Name="FuncBtn2" Datatype="Bool" /><Member Name="EnManHMI2" Datatype="Bool" /><Member Name="AckSfty3" Datatype="Bool" /><Member Name="FuncBtn3" Datatype="Bool" /><Member Name="EnManHMI3" Datatype="Bool" /><Member Name="GhostRun" Datatype="Bool" /><Member Name="DryRun" Datatype="Bool" /><Member Name="EnManLcl" Datatype="Bool" /><Member Name="AutStart" Datatype="Bool" /><Member Name="Ack" Datatype="Bool" /><Member Name="EmgStop" Datatype="Bool" /><Member Name="AlmSupp" Datatype="Bool" /><Member Name="AutRdy" Datatype="Bool" /><Member Name="AllAutoRun" Datatype="Bool" /><Member Name="AllEndOfCycle" Datatype="Bool" /><Member Name="AllEndOfProd" Datatype="Bool" /><Member Name="AllInBasePos" Datatype="Bool" /><Member Name="AllStopBefor" Datatype="Bool" /><Member Name="AllStopAfter" Datatype="Bool" /><Member Name="AllPause" Datatype="Bool" /><Member Name="ReqEndOfCycle" Datatype="Bool" /><Member Name="ReqEndOfProd" Datatype="Bool" /><Member Name="ReqBasePos" Datatype="Bool" /><Member Name="ReqPause" Datatype="Bool" /><Member Name="ModeAutStep" Datatype="Bool" /><Member Name="ReqNextStep" Datatype="Bool" /><Member Name="ModeStopBefor" Datatype="Bool" /><Member Name="ModeStopAfter" Datatype="Bool" /><Member Name="ModeBypas" Datatype="Bool" /><Member Name="AutoRunProd" Datatype="Bool" /><Member Name="AutoRunBasePos" Datatype="Bool" /><Member Name="ClrSel" Datatype="Bool" /><Member Name="FuncBtn1PanelNr" Datatype="Int" /><Member Name="FuncBtn2PanelNr" Datatype="Int" /><Member Name="FuncBtn3PanelNr" Datatype="Int" /><Member Name="DevSelNr" Datatype="Int" /></Section></Sections></Member>
+    <Member Name="R_DRIVESTATUS_S" Datatype="&quot;UDT_DriveRobotABB_Status_specific&quot;" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Sections><Section Name="None"><Member Name="EmgStop" Datatype="Bool" /><Member Name="AutoOn" Datatype="Bool" /><Member Name="SftyOK" Datatype="Bool" /><Member Name="MotorOff" Datatype="Bool" /><Member Name="MotorOn" Datatype="Bool" /><Member Name="CtrlRun" Datatype="Bool" /><Member Name="CycleOn" Datatype="Bool" /><Member Name="SimIO" Datatype="Bool" /><Member Name="ReqPause" Datatype="Bool" /><Member Name="CfgLock" Datatype="Bool" /><Member Name="SftySvsnMode" Datatype="Bool" /><Member Name="Sync_R1" Datatype="Bool" /><Member Name="Sync_R2" Datatype="Bool" /><Member Name="Sync_R3" Datatype="Bool" /><Member Name="Sync_R4" Datatype="Bool" /><Member Name="OutOfMonZone1" Datatype="Bool" /><Member Name="OutOfMonZone2" Datatype="Bool" /><Member Name="OutOfMonZone3" Datatype="Bool" /><Member Name="OutOfMonZone4" Datatype="Bool" /><Member Name="OutOfMonZone5" Datatype="Bool" /><Member Name="OutOfMonZone6" Datatype="Bool" /><Member Name="OutOfMonZone7" Datatype="Bool" /><Member Name="OutOfMonZone8" Datatype="Bool" /><Member Name="Initialized" Datatype="Bool" /><Member Name="InitSeqNr" Datatype="Int" /></Section></Sections></Member>
+    <Member Name="SM" Datatype="&quot;UDT_Status_main&quot;" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Sections><Section Name="None"><Member Name="Aut" Datatype="Bool" /><Member Name="AutoRun" Datatype="Bool" /><Member Name="Man" Datatype="Bool" /><Member Name="Serv" Datatype="Bool" /><Member Name="Run" Datatype="Bool" /><Member Name="CollWrn" Datatype="Bool" /><Member Name="CollErr" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="R_GRIPPERSTATUS" Datatype="&quot;UDT_Status_main&quot;" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Sections><Section Name="None"><Member Name="Aut" Datatype="Bool" /><Member Name="AutoRun" Datatype="Bool" /><Member Name="Man" Datatype="Bool" /><Member Name="Serv" Datatype="Bool" /><Member Name="Run" Datatype="Bool" /><Member Name="CollWrn" Datatype="Bool" /><Member Name="CollErr" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="D2SS" Datatype="&quot;UDT_Drive2_Status_specific&quot;" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Sections><Section Name="None"><Member Name="DevRunDir1" Datatype="Bool" /><Member Name="DevRunDir2" Datatype="Bool" /><Member Name="DevCollErr" Datatype="Bool" /><Member Name="DevRun" Datatype="Bool" /><Member Name="RelManDir1" Datatype="Bool" /><Member Name="RelManDir2" Datatype="Bool" /><Member Name="DevRefAct" Datatype="Bool" /><Member Name="DevRef" Datatype="Bool" /><Member Name="ReqManOutDir1" Datatype="Bool" /><Member Name="ReqManOutDir2" Datatype="Bool" /><Member Name="ReqAutOut" Datatype="Bool" /><Member Name="ReqRefOut" Datatype="Bool" /><Member Name="ReqSemiAutDir1" Datatype="Bool" /><Member Name="ReqSemiAutDir2" Datatype="Bool" /><Member Name="DevSelEdge" Datatype="Bool" /><Member Name="Sel" Datatype="Bool" /><Member Name="ActPos" Datatype="Real" /><Member Name="SPPos" Datatype="Real" /></Section></Sections></Member>
+    <Member Name="D2C" Datatype="&quot;UDT_Drive2_Command&quot;" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Sections><Section Name="None"><Member Name="Sel" Datatype="Int" /><Member Name="ClrSel" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="V2WBSS" Datatype="&quot;UDT_Valve2WB_Status_specific&quot;" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Sections><Section Name="None"><Member Name="PosA" Datatype="Bool" /><Member Name="PosB" Datatype="Bool" /><Member Name="RelDir1" Datatype="Bool" /><Member Name="RelDir2" Datatype="Bool" /><Member Name="ReqOutDir1" Datatype="Bool" /><Member Name="ReqOutDir2" Datatype="Bool" /><Member Name="CmdOutDir1" Datatype="Bool" /><Member Name="CmdOutDir2" Datatype="Bool" /><Member Name="DevSelEdge" Datatype="Bool" /><Member Name="Sel" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="V2WBC" Datatype="&quot;UDT_Valve2WB_Command&quot;" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Sections><Section Name="None"><Member Name="Sel" Datatype="Int" /><Member Name="ClrSel" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="LiveBit" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList></Member>
+    <Member Name="TestNumber" Datatype="Int" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList></Member>
+  </Section>
+</Sections></Interface>
+      <IsOnlyStoredInLoadMemory>false</IsOnlyStoredInLoadMemory>
+      <IsRetainMemResEnabled>false</IsRetainMemResEnabled>
+      <IsWriteProtectedInAS>false</IsWriteProtectedInAS>
+      <MemoryLayout>Optimized</MemoryLayout>
+      <MemoryReserve>100</MemoryReserve>
+      <Name>Dummy_DB</Name>
+      <Number>66</Number>
+      <ProgrammingLanguage>DB</ProgrammingLanguage>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+          <MultilingualTextItem ID="3" CompositionName="Items">
+            <AttributeList>
+              <Culture>cs-CZ</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <MultilingualText ID="4" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="5" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+          <MultilingualTextItem ID="6" CompositionName="Items">
+            <AttributeList>
+              <Culture>cs-CZ</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+    </ObjectList>
+  </SW.Blocks.GlobalDB>
+</Document>
